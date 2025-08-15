@@ -5,7 +5,7 @@ import StatsStrip from "./StatsStrip";
 
 const WhoWeAreSection: React.FC = () => {
   return (
-    <section className="bg-neutral-50">
+    <section className="bg-neutral-50 pb-10">
       <div className="mx-auto w-[90%] py-12 lg:py-16">
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
           <div className="basis-[40%] grow overflow-hidden rounded-2xl">

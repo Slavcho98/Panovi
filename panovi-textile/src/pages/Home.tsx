@@ -1,3 +1,4 @@
+import DarkFeatureStrip from "./HomePage/DarkFeatureStrip";
 import Hero from "./HomePage/Hero";
 import WhoWeAreSection from "./HomePage/WhoWeAre";
 
@@ -6,6 +7,7 @@ function Home() {
     <div>
       <Hero />
       <WhoWeAreSection />
+      <DarkFeatureStrip/>
     </div>
   );
 }

@@ -2,7 +2,7 @@ function AboutIntro() {
   return (
     <section className="">
       <div className="w-[50%] mx-auto py-32">
-        <div className="space-y-4 text-[15px] sm:text-base leading-relaxed text-slate-700">
+        <div className="space-y-4 text-[15px] sm:text-lg leading-relaxed text-slate-700">
           <p>
             <span className="font-semibold">PANOVI</span> is a modern textile factory located in the Republic of North Macedonia –{" "}
             <span className="font-semibold">at the heart of Europe</span>, proudly labeled <span className="font-semibold">Made in Europe</span>. Founded in{" "}

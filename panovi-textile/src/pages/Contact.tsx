@@ -11,6 +11,7 @@ import {
 import type { MetricItemProps } from "./GalleryPage/MetricItem";
 import { SlLocationPin } from "react-icons/sl";
 import ContactCardList from "./ContactPage/ContactCardList";
+import ContactUs from "./ContactPage/ContactUsSection";
 const METRICS: MetricItemProps[] = [
   { icon: LuLayers, value: "5,000m²", label: "Manufacturing Facility" },
   { icon: LuClock3, value: "25+ Years", label: "Years Experience" },
@@ -51,7 +52,7 @@ const CONTACT_CARDS = [
 
 function Contact() {
   return (
-    <>
+    <div className="bg-[#F4F7FC]">
       <ManufacturingExcellence
         items={METRICS}
         headingLead="Get in"
@@ -66,7 +67,8 @@ function Contact() {
         }}
       />
       <ContactCardList items={CONTACT_CARDS} />
-    </>
+      <ContactUs />
+    </div>
   );
 }
 

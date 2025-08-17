@@ -1,6 +1,5 @@
 import {
   LuBadgeCheck,
-
   LuClock3,
   LuCog,
   LuLayers,
@@ -10,6 +9,8 @@ import {
   LuUser,
   LuUsers,
 } from "react-icons/lu";
+import { PiMedalLight } from "react-icons/pi";
+
 import { FaCircle } from "react-icons/fa6";
 
 import ManufacturingExcellence from "./GalleryPage/ManufacturingExcellence";
@@ -119,6 +120,14 @@ function Certificates() {
         items={METRICS}
         headingLead="Certified"
         description="Our comprehensive certification portfolio demonstrates unwavering commitment to quality, environmental responsibility, worker safety, and sustainable manufacturing practices"
+        statusLabel={{
+          text: "5 International Certifications",
+          bgColor: "#2197FF",
+          bgOpacity: 0.08,
+          textColor: "#fff",
+          icon: PiMedalLight,
+          iconColor: "#FFA600",
+        }}
       />
       <CertificateImageList items={CERT_ITEMS} />
       <CertFeaturesList items={CERT_FEATURES} />

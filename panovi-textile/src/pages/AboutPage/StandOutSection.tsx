@@ -1,4 +1,3 @@
-import React from "react";
 import videoSrc from "../../assets/video_1.mp4";
 
 const VideoPlaceholder = () => (
@@ -27,9 +26,17 @@ export default function StandOutSection() {
             </h2>
             <p className="text-sm sm:text-base leading-relaxed text-slate-200">
               modern textile factory with a{" "}
-              <span className="font-semibold">high level of mechanization</span>, a{" "}
-              <span className="font-semibold">well-structured organizational system</span>, and advanced software for real-time production monitoring. Thanks to our production process, we offer{" "}
-              <span className="font-semibold">complete solutions for workwear and corporate clothing</span>, tailored to meet the specific needs of each client.
+              <span className="font-semibold">high level of mechanization</span>
+              , a{" "}
+              <span className="font-semibold">
+                well-structured organizational system
+              </span>
+              , and advanced software for real-time production monitoring.
+              Thanks to our production process, we offer{" "}
+              <span className="font-semibold">
+                complete solutions for workwear and corporate clothing
+              </span>
+              , tailored to meet the specific needs of each client.
             </p>
           </div>
         </div>

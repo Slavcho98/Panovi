@@ -2,16 +2,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/AboutPage/About";
-
 import Certificates from "./pages/Certificates";
 import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Gallery from "./pages/Gallery";
+import CookieConsent from "./components/CookieConsent";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <CookieConsent brand="PANOVI" policyHref="/privacy" />
+
       <Routes>
         <Route element={<AppLayout />}>
           <Route index element={<Home />} />

@@ -22,9 +22,7 @@ export default function MetricItem({
       </div>
       <div className="text-xl sm:text-2xl font-medium text-white">{value}</div>
       <div className="mt-1 text-sm text-slate-300">{label}</div>
-      {helper ? (
-        <div className="mt-1 text-xs text-slate-400">{helper}</div>
-      ) : null}
+      {helper ? <div className="mt-1 text-xs text-slate-400">{helper}</div> : null}
     </div>
   );
 }

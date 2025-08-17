@@ -1,3 +1,4 @@
+import React from "react";
 import videoSrc from "../../assets/video_1.mp4";
 
 const VideoPlaceholder = () => (

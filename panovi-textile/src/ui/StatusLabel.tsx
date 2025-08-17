@@ -1,6 +1,6 @@
 import type { IconType } from "react-icons";
 
-type StatusLabelProps = {
+export type StatusLabelProps = {
   text: string;
   bgColor?: string;
   bgOpacity?: number;

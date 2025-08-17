@@ -12,6 +12,7 @@ import type { MetricItemProps } from "./GalleryPage/MetricItem";
 import { SlLocationPin } from "react-icons/sl";
 import ContactCardList from "./ContactPage/ContactCardList";
 import ContactUs from "./ContactPage/ContactUsSection";
+import QualityTeaser from "./GalleryPage/QualityTeaser";
 const METRICS: MetricItemProps[] = [
   { icon: LuLayers, value: "5,000m²", label: "Manufacturing Facility" },
   { icon: LuClock3, value: "25+ Years", label: "Years Experience" },
@@ -68,6 +69,18 @@ function Contact() {
       />
       <ContactCardList items={CONTACT_CARDS} />
       <ContactUs />
+      <QualityTeaser
+        title="Ready to Start Your Project?
+"
+        description="With our ISO-certified facility, advanced JUKI equipment, and 25+ years of experience, we're ready to handle projects of any scale. From small custom orders to large production runs, we deliver quality that meets international standards."
+        highlights={[
+          "Quick Response Time",
+          "OEKO-TEX® Sustainable",
+          "Custom Solutions",
+          "Quality Guarantee",
+          "25+ Years Experience",
+        ]}
+      />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import {
   LuBadgeCheck,
+
   LuClock3,
   LuCog,
   LuLayers,
@@ -9,6 +10,7 @@ import {
   LuUser,
   LuUsers,
 } from "react-icons/lu";
+import { FaCircle } from "react-icons/fa6";
 
 import ManufacturingExcellence from "./GalleryPage/ManufacturingExcellence";
 import type { MetricItemProps } from "./GalleryPage/MetricItem";
@@ -22,6 +24,7 @@ import cert3 from "../assets/certificate_3.jpg";
 import cert4 from "../assets/certificate_4.jpg";
 import cert5 from "../assets/certificate_5.jpg";
 import QualityTeaser from "./GalleryPage/QualityTeaser";
+import StatusLabel from "../ui/StatusLabel";
 
 const METRICS: MetricItemProps[] = [
   {
@@ -119,6 +122,14 @@ function Certificates() {
       />
       <CertificateImageList items={CERT_ITEMS} />
       <CertFeaturesList items={CERT_FEATURES} />
+      <StatusLabel
+        text="All certifications are current and valid"
+        bgColor="#00FA53"
+        bgOpacity={0.08}
+        textColor="#222423"
+        icon={FaCircle}
+        iconColor="#7BFFA7"
+      />
       <QualityTeaser
         title="Complete Standards Compliance"
         description="Our comprehensive certification portfolio spanning quality, environmental management, worker safety, sustainability, and energy efficiency demonstrates our total commitment to responsible manufacturing. Combined with advanced equipment and expert craftsmanship, we deliver excellence at every stage."

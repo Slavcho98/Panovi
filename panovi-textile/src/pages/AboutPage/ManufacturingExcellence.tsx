@@ -1,8 +1,8 @@
 function ManufacturingExcellence() {
   return (
-    <section className="">
-      <div className="w-[50%] mx-auto py-32">
-        <div className="space-y-4 text-[15px] sm:text-lg leading-relaxed text-slate-700">
+    <section>
+      <div className="mx-auto w-[90%] pt-10 pb-16 lg:py-32">
+        <div className="space-y-4 text-justify text-[15px] sm:text-lg leading-relaxed text-slate-700">
           <p>
             Our core motivation lies in delivering <span className="font-semibold">quality</span> and a{" "}
             <span className="font-semibold">flawless appearance</span> in every single product we create. To ensure

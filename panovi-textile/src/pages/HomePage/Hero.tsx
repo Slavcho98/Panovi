@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
         <img
           src={heroImg}
           alt=""
-          className="h-[80vh] w-full object-cover object-center"
+          className="h-[60dvh] md:h-[80dvh] w-full object-cover object-center"
         />
       </div>
 

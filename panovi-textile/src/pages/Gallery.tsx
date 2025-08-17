@@ -4,11 +4,11 @@ import { PiScissors } from "react-icons/pi";
 
 import ManufacturingExcellence from "./GalleryPage/ManufacturingExcellence";
 import ProcessList from "./GalleryPage/ProcessList";
-import imgCutting from "./../assets/manufactur-1.jpg"
-import imgCraft from "./../assets/manufactur-2.jpg"
-import imgOverlock from "./../assets/manufactur-3.jpg"
-import imgFinish from "./../assets/manufactur-4.jpg"
-
+import imgCutting from "./../assets/manufactur-1.jpg";
+import imgCraft from "./../assets/manufactur-2.jpg";
+import imgOverlock from "./../assets/manufactur-3.jpg";
+import imgFinish from "./../assets/manufactur-4.jpg";
+import QualityTeaser from "./GalleryPage/QualityTeaser";
 
 const METRICS = [
   {
@@ -75,6 +75,16 @@ function Gallery() {
     <div>
       <ManufacturingExcellence items={METRICS} />
       <ProcessList items={PROCESS_ITEMS} />
+      <QualityTeaser
+        title="Ready to Experience Our Quality?"
+        description="Our combination of international certifications, advanced equipment, and expert craftsmanship ensures every product meets the highest standards. From automated cutting to precision finishing, we deliver excellence at every stage."
+        highlights={[
+          "ISO Certified Quality",
+          "Professional JUKI Equipment",
+          "25+ Years Experience",
+          "Sustainable Operations",
+        ]}
+      />
     </div>
   );
 }

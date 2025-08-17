@@ -10,7 +10,6 @@ import {
   LuUsers,
 } from "react-icons/lu";
 import { PiMedalLight } from "react-icons/pi";
-
 import { FaCircle } from "react-icons/fa6";
 
 import ManufacturingExcellence from "./GalleryPage/ManufacturingExcellence";
@@ -74,7 +73,6 @@ const CERT_FEATURES = [
   },
 ];
 
-// updated to include text per card
 const CERT_ITEMS: CertificateImageItemProps[] = [
   {
     src: cert1,

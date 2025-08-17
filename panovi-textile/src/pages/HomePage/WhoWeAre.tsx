@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import aboutImg from "../../assets/about.png";
+import aboutImg from "../../assets/factory-4.jpg";
 import StatsStrip from "./StatsStrip";
+import { LuChevronRight } from "react-icons/lu";
 
 const WhoWeAreSection: React.FC = () => {
   return (
@@ -32,9 +33,10 @@ const WhoWeAreSection: React.FC = () => {
             </p>
             <NavLink
               to="/about"
-              className="mt-4 inline-block rounded-full border border-neutral-300 px-3.5 py-2 text-sm text-neutral-700 hover:border-neutral-400"
+              className="group text-center md:text-start mt-4 w-1/2 md:w-1/3 inline-flex items-center gap-2 rounded-full border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-700 hover:border-neutral-400 hover:bg-white/60 focus:outline-none focus:ring-2 focus:ring-neutral-300"
             >
-              More About us &rsaquo;
+              <span>More About Us</span>
+              <LuChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </NavLink>
           </div>
         </div>

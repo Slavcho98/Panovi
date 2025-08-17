@@ -2,11 +2,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/AboutPage/About";
-import Gallery from "./pages/Gallery";
+
 import Certificates from "./pages/Certificates";
 import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
+import Gallery from "./pages/Gallery";
 
 export default function App() {
   return (

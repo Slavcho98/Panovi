@@ -150,6 +150,44 @@ function Certificates() {
       />
     </div>
   );
+  return (
+    <div>
+      <ManufacturingExcellence
+        items={METRICS}
+        headingLead="Certified"
+        description="Our comprehensive certification portfolio demonstrates unwavering commitment to quality, environmental responsibility, worker safety, and sustainable manufacturing practices"
+        statusLabel={{
+          text: "5 International Certifications",
+          bgColor: "#2197FF",
+          bgOpacity: 0.08,
+          textColor: "#fff",
+          icon: PiMedalLight,
+          iconColor: "#FFA600",
+        }}
+      />
+      <CertificateImageList items={CERT_ITEMS} />
+      <CertFeaturesList items={CERT_FEATURES} />
+      <StatusLabel
+        text="All certifications are current and valid"
+        bgColor="#00FA53"
+        bgOpacity={0.08}
+        textColor="#222423"
+        icon={FaCircle}
+        iconColor="#7BFFA7"
+      />
+      <QualityTeaser
+        title="Complete Standards Compliance"
+        description="Our comprehensive certification portfolio spanning quality, environmental management, worker safety, sustainability, and energy efficiency demonstrates our total commitment to responsible manufacturing. Combined with advanced equipment and expert craftsmanship, we deliver excellence at every stage."
+        highlights={[
+          " ISO Quality & Safety Certified",
+          " OEKO-TEX® Sustainable",
+          " Energy Management Optimized",
+          "Professional JUKI Equipment",
+          "25+ Years Experience",
+        ]}
+      />
+    </div>
+  );
 }
 
 export default Certificates;

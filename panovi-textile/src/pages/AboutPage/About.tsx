@@ -1,6 +1,7 @@
 import StatsStrip from "../HomePage/StatsStrip";
 import AboutHighlightsList from "./AboutHighlightsList";
 import AboutIntro from "./AboutIntro";
+import CertificatesList from "./CertificatesList";
 import Hero from "./Hero";
 import ManufacturingExcellence from "./ManufacturingExcellence";
 import StandOutSection from "./StandOutSection";
@@ -14,6 +15,20 @@ const DIFFERENTIATORS = [
   "Most competitive factory in the region",
   "Internationally recognized certifications",
 ];
+
+
+const CERTS = [
+  "OEKO–TEX® STeP",
+  "TÜV AUSTRIA",
+  "ISO 9001:2015",
+  "ISO 14001:2015",
+  "ISO 45001:2018",
+  "SA8000:2014",
+  "SEDEX SMETA 4",
+  "ISO 50001:2018",
+];
+
+
 function About() {
   return (
     <div>
@@ -27,6 +42,7 @@ function About() {
       <ManufacturingExcellence />
       <AboutHighlightsList items={DIFFERENTIATORS} />
       <StandOutSection/>
+      <CertificatesList items={CERTS}/>
     </div>
   );
 }

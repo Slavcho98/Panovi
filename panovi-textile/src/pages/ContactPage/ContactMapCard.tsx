@@ -1,0 +1,64 @@
+import { LuMapPin } from "react-icons/lu";
+
+type ContactMapCardProps = {
+  title?: string;
+  subtitle?: string;
+  address?: string;
+  locationName?: string;
+  ctaLabel?: string;
+  directionsHref?: string;
+  zoom?: number;
+  className?: string;
+};
+
+export default function ContactMapCard({
+  title = "Find Our Location",
+  subtitle = "Visit our state-of-the-art manufacturing facility equipped with professional JUKI equipment and certified to international standards.",
+  address = "Str. Miro Baraga nn, 2210 Probishtip, North Macedonia",
+  locationName = "PANOVI DOOEL",
+  ctaLabel = "Get Directions",
+  directionsHref,
+  zoom = 15,
+  className = "",
+}: ContactMapCardProps) {
+  const encoded = encodeURIComponent(address);
+  const embedUrl = `https://www.google.com/maps?q=${encoded}&z=${zoom}&output=embed`;
+  const dirUrl = directionsHref ?? `https://www.google.com/maps/dir/?api=1&destination=${encoded}`;
+
+  return (
+    <div className={`space-y-3 ${className}`}>
+      <div>
+        <h3 className="text-2xl sm:text-3xl font-semibold text-neutral-900">{title}</h3>
+        <p className="mt-1 text-sm text-neutral-500 max-w-lg">{subtitle}</p>
+      </div>
+
+      <div className="rounded-3xl border border-neutral-200 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] overflow-hidden">
+        <div className="aspect-[4/3] w-full">
+          <iframe
+            src={embedUrl}
+            className="h-full w-full border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title={locationName}
+          />
+        </div>
+
+        <div className="flex items-center justify-between gap-3 border-t border-neutral-200 p-5">
+          <div>
+            <div className="text-sm font-medium text-neutral-800">{locationName}</div>
+            <div className="text-xs text-neutral-500">{address}</div>
+          </div>
+          <a
+            href={dirUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#ef114d] px-4 py-2 text-sm font-medium text-white shadow hover:opacity-95"
+          >
+            <LuMapPin className="h-4 w-4" />
+            {ctaLabel}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}

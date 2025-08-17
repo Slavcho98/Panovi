@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaLinkedin, FaFacebook } from "react-icons/fa6";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
-import logoLight from "../assets/logo.png";
+import logoLight from "../assets/logo-white.png";
 
 const Footer: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       <div className="mx-auto w-[90%] px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <img src={logoLight} alt="Panovi" className="h-10 w-auto" />
+            <img src={logoLight} alt="Panovi" className="h-24 w-auto" />
             <p className="mt-3 max-w-sm text-sm text-white/70">
               Where innovation meets responsibility. Textile excellence in
               harmony with nature.

@@ -1,11 +1,11 @@
 import React from "react";
-import heroImg from "../../assets/about-banner.jpeg";
+import heroImg from "../../assets/about-banner2.jpeg";
 
 const Hero: React.FC = () => {
   return (
     <section
       style={{ backgroundImage: `url(${heroImg})` }}
-      className="relative h-[50vh] bg-cover bg-no-repeat bg-[position:center_40%]"
+      className="relative min-h-[60vh] bg-cover bg-no-repeat bg-center"
     >
       <div className="absolute inset-0 bg-[#005BE4]/50" />
 

@@ -4,6 +4,7 @@ import AboutIntro from "./AboutIntro";
 import CertificatesList from "./CertificatesList";
 import Hero from "./Hero";
 import ManufacturingExcellence from "./ManufacturingExcellence";
+import ReadyToWorkSection from "./ReadyToWorkSection";
 import StandOutSection from "./StandOutSection";
 const DIFFERENTIATORS = [
   "Modern textile factory with high level of mechanization",
@@ -43,6 +44,7 @@ function About() {
       <AboutHighlightsList items={DIFFERENTIATORS} />
       <StandOutSection/>
       <CertificatesList items={CERTS}/>
+      <ReadyToWorkSection/>
     </div>
   );
 }

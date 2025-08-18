@@ -6,3 +6,11 @@
     Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
 }
+/* Tailwind v4 custom utility */
+@utility no-scrollbar {
+  -ms-overflow-style: none;     /* IE/Edge */
+  scrollbar-width: none;        /* Firefox */
+  &::-webkit-scrollbar { 
+    display: none;              /* Chrome/Safari */
+  }
+}

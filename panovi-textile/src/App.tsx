@@ -9,7 +9,6 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Gallery from "./pages/Gallery";
 import CookieConsent from "./components/CookieConsent";
-import CookieConsent from "./components/CookieConsent";
 
 export default function App() {
   return (

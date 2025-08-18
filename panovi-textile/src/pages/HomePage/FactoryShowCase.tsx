@@ -20,7 +20,12 @@ const FactoryShowcase: React.FC = () => {
   const Card = ({ src, alt }: { src: string; alt: string }) => (
     <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-black/5">
       <div className="aspect-[4/3] w-full">
-        <img src={src} alt={alt} className="h-full w-full object-cover" loading="lazy" />
+        <img
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
       </div>
     </div>
   );
@@ -32,13 +37,13 @@ const FactoryShowcase: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-900">
             Our Textile Factory
           </h2>
-          <p className="mx-auto mt-3 max-w-3xl text-sm md:text-base leading-7 text-neutral-600">
-            A modern textile facility specialized in high-quality workwear and corporate apparel — driven by
-            innovation, precision, and over two decades of industry expertise.
+          <p className="mx-auto mt-3 max-w-3xl text-sm md:text-base leading-7 font-light">
+            A modern textile facility specialized in high-quality workwear and
+            corporate apparel — driven by innovation, precision, and over two
+            decades of industry expertise.
           </p>
         </div>
 
-        {/* Mobile slider (< md) */}
         <div className="mt-8 md:hidden relative">
           <div
             ref={railRef}
@@ -58,7 +63,6 @@ const FactoryShowcase: React.FC = () => {
             ))}
           </div>
 
-          {/* Prev / Next */}
           <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between px-1">
             <button
               onClick={() => scroll(-1)}
@@ -77,7 +81,6 @@ const FactoryShowcase: React.FC = () => {
           </div>
         </div>
 
-        {/* Tablet and up: grid (md:2, lg:4) */}
         <div className="mt-8 hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4">
           {IMAGES.map((src, i) => (
             <Card key={i} src={src} alt={`Factory image ${i + 1}`} />

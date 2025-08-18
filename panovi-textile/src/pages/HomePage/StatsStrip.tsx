@@ -1,26 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-
-/* ---------- helpers ---------- */
-function useInViewport<T extends HTMLElement>(opts?: IntersectionObserverInit) {
-  const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    const io = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setInView(true),
-      { threshold: 0.4, ...opts }
-    );
-    io.observe(node);
-    return () => io.disconnect();
-  }, [opts]);
-
-  return { ref, inView } as const;
-}
+import { useInViewport } from "../../helpers/useInViewport";
 
 function parseNumeric(value: string) {
-  // captures optional prefix, the number, and suffix
   const m = value.trim().match(/^(\D*?)([\d.,]+)(.*)$/);
   if (!m) return { prefix: "", num: 0, suffix: value };
   const [, prefix, numeric, suffix] = m;
@@ -38,7 +19,7 @@ function CountUp({
 }: {
   target: number;
   start: boolean;
-  duration?: number; // seconds
+  duration?: number;
   prefix?: string;
   suffix?: string;
   className?: string;
@@ -93,9 +74,9 @@ const Stat: React.FC<StatProps> = ({
   value,
   label,
   numberSize = "text-2xl",
-  numberWeight = "font-semibold",
-  labelSize = "text-xs",
-  labelWeight = "font-normal",
+  numberWeight = "",
+  labelSize = "text-lg",
+  labelWeight = "font-light",
   start = false,
   className = "",
 }) => {
@@ -109,7 +90,7 @@ const Stat: React.FC<StatProps> = ({
         suffix={suffix}
         className={`${numberSize} ${numberWeight} tracking-tight`}
       />
-      <div className={`mt-1 ${labelSize} ${labelWeight} text-neutral-500`}>
+      <div className={`mt-1 ${labelSize} ${labelWeight}`}>
         {label}
       </div>
     </div>

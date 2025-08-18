@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import Home from "./pages/Home";
 import About from "./pages/AboutPage/About";
@@ -13,6 +14,14 @@ export default function App() {
   return (
     <BrowserRouter>
       <CookieConsent brand="PANOVI" policyHref="/privacy" />
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          style: { fontSize: "14px" },
+          success: { iconTheme: { primary: "#10B981", secondary: "#fff" } },
+          error: { iconTheme: { primary: "#ef4444", secondary: "#fff" } },
+        }}
+      />
 
       <Routes>
         <Route element={<AppLayout />}>

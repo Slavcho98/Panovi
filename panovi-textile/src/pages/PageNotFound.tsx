@@ -4,8 +4,11 @@ import sewingImg from "../assets/vecteezy_sewing-machine-vector-isolated-on-whit
 export default function PageNotFound() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F4F7FC]">
-      {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_-10%,#cfe3ff_0%,transparent_60%)]" />
+      {/* Background gradient (decorative) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_-10%,#cfe3ff_0%,transparent_60%)]"
+      />
 
       {/* Content */}
       <div className="relative mx-auto w-[90%] max-w-5xl px-4 sm:px-6 py-16 sm:py-24">

@@ -14,20 +14,24 @@ type ContactMapCardProps = {
 export default function ContactMapCard({
   title = "Find Our Location",
   subtitle = "Visit our state-of-the-art manufacturing facility equipped with professional JUKI equipment and certified to international standards.",
-  address = "PANOVI DOOEL, Miro Baraga 56, Probištip 2210, North Macedonia",
+  address = "Miro Baraga 56, Probištip 2210",
   locationName = "PANOVI DOOEL",
   ctaLabel = "Get Directions",
   directionsHref,
   zoom = 15,
   className = "",
 }: ContactMapCardProps) {
-  const encoded = encodeURIComponent(address);
-  const embedUrl = `https://www.google.com/maps?q=${encoded}&z=${zoom}&output=embed`;
+  // Build the exact destination label the link should use
+  const destinationLabel = [locationName, address].filter(Boolean).join(", ");
+  const encodedDest = encodeURIComponent(destinationLabel);
+
+  // Use the exact label for both the embed and directions link
+  const embedUrl = `https://www.google.com/maps?q=${encodedDest}&z=${zoom}&output=embed`;
   const dirUrl =
     directionsHref ??
-    `https://www.google.com/maps/dir/?api=1&destination=${encoded}`;
+    `https://www.google.com/maps/dir/?api=1&destination=${encodedDest}`;
 
-  const parts = address.split(",");
+  const parts = (address || "").split(",");
   const country = (parts.pop() || "").trim();
   const rest = parts.join(",").trim();
 
@@ -63,7 +67,7 @@ export default function ContactMapCard({
           <a
             href={dirUrl}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#ef114d] px-4 py-2 text-sm font-medium text-white shadow hover:opacity-95"
           >
             <LuMapPin className="h-4 w-4" />

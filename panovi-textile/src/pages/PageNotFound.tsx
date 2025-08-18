@@ -3,20 +3,24 @@ import sewingImg from "../assets/vecteezy_sewing-machine-vector-isolated-on-whit
 
 export default function PageNotFound() {
   return (
-    <section className="relative overflow-hidden bg-[#F4F7FC]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F4F7FC]">
+      {/* Background gradient */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_-10%,#cfe3ff_0%,transparent_60%)]" />
 
-      <div className="mx-auto w-[90%] max-w-5xl px-4 sm:px-6 py-16 sm:py-24">
+      {/* Content */}
+      <div className="relative mx-auto w-[90%] max-w-5xl px-4 sm:px-6 py-16 sm:py-24">
         <div className="flex flex-col items-center text-center">
+          {/* Illustration */}
           <div className="relative">
             <div className="absolute -inset-6 rounded-full bg-blue-500/10 blur-2xl" />
             <img
               src={sewingImg}
               alt="Sewing machine illustration"
-              className="relative h-32 w-auto sm:h-60 object-contain drop-shadow-xl"
+              className="relative h-44 w-auto sm:h-60 object-contain drop-shadow-xl"
             />
           </div>
 
+          {/* Text */}
           <p className="mt-6 text-sm font-medium tracking-wider text-blue-600">
             ERROR 404
           </p>
@@ -28,6 +32,7 @@ export default function PageNotFound() {
             deleted, or the URL is incorrect.
           </p>
 
+          {/* Buttons */}
           <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
             <NavLink
               to="/"

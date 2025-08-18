@@ -101,7 +101,7 @@ const DarkFeatureStrip: React.FC = () => {
               <LeftBlock
                 title="How we make it happen"
                 ctaText="See behind the scenes"
-                to="/gallery"
+                to="/process"
                 icon={<PiPresentationChartBold size={16} />}
               >
                 Crafted with care. Backed by process. Every step is optimized

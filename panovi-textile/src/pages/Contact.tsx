@@ -14,7 +14,7 @@ import ContactCardList from "./ContactPage/ContactCardList";
 import ContactUs from "./ContactPage/ContactUsSection";
 import QualityTeaser from "./GalleryPage/QualityTeaser";
 const METRICS: MetricItemProps[] = [
-  { icon: LuLayers, value: "5,000m²", label: "Manufacturing Facility" },
+  { icon: LuLayers, value: "2,000m²", label: "Manufacturing Facility" },
   { icon: LuClock3, value: "25+ Years", label: "Years Experience" },
   { icon: LuGlobe, value: "15+ Countries", label: "Export Markets" },
   { icon: LuUsers, value: "25+ Specialists", label: "Expert Team" },

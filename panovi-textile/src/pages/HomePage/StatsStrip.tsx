@@ -67,6 +67,7 @@ type StatProps = {
   labelSize?: string;
   labelWeight?: string;
   start?: boolean;
+  start?: boolean;
   className?: string;
 };
 
@@ -103,6 +104,7 @@ type StatsStripProps = {
   labelSize?: string;
   labelWeight?: string;
   className?: string;
+  className?: string;
 };
 
 const StatsStrip: React.FC<StatsStripProps> = ({
@@ -111,14 +113,19 @@ const StatsStrip: React.FC<StatsStripProps> = ({
   labelSize,
   labelWeight,
   className = "",
+  className = "",
 }) => {
+  const { ref, inView } = useInViewport<HTMLDivElement>();
+
   const { ref, inView } = useInViewport<HTMLDivElement>();
 
   return (
     <section className={`bg-neutral-50 ${className}`} ref={ref}>
+    <section className={`bg-neutral-50 ${className}`} ref={ref}>
       <div className="mx-auto w-full">
         <div className="bg-white border border-neutral-200 shadow-md rounded-none">
           <div className="mx-auto w-full max-w-5xl px-6">
+            <div className="flex flex-col gap-6 py-6 sm:flex-row sm:items-center sm:justify-around">
             <div className="flex flex-col gap-6 py-6 sm:flex-row sm:items-center sm:justify-around">
               <Stat
                 value="60,000+"
@@ -127,6 +134,7 @@ const StatsStrip: React.FC<StatsStripProps> = ({
                 numberWeight={numberWeight}
                 labelSize={labelSize}
                 labelWeight={labelWeight}
+                start={inView}
                 start={inView}
               />
               <Stat
@@ -137,6 +145,7 @@ const StatsStrip: React.FC<StatsStripProps> = ({
                 labelSize={labelSize}
                 labelWeight={labelWeight}
                 start={inView}
+                start={inView}
               />
               <Stat
                 value="1"
@@ -145,6 +154,7 @@ const StatsStrip: React.FC<StatsStripProps> = ({
                 numberWeight={numberWeight}
                 labelSize={labelSize}
                 labelWeight={labelWeight}
+                start={inView}
                 start={inView}
               />
             </div>

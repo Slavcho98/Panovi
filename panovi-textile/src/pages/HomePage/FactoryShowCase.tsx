@@ -7,6 +7,15 @@ import img3 from "../../assets/factory-3.jpg";
 import img4 from "../../assets/factory-4.jpg";
 
 const IMAGES: string[] = [img1, img2, img3, img4];
+import React, { useRef } from "react";
+import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
+
+import img1 from "../../assets/factory-1.jpg";
+import img2 from "../../assets/factory-2.png";
+import img3 from "../../assets/factory-3.jpg";
+import img4 from "../../assets/factory-4.jpg";
+
+const IMAGES: string[] = [img1, img2, img3, img4];
 
 const FactoryShowcase: React.FC = () => {
   const railRef = useRef<HTMLDivElement>(null);

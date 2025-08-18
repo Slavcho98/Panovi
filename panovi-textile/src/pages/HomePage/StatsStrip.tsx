@@ -1,14 +1,16 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useInViewport } from "../../helpers/useInViewport";
 
-function parseNumeric(value: string) {
+/* ---------- utils ---------- */
+function parseNumeric(value: string): { prefix: string; num: number; suffix: string } {
   const m = value.trim().match(/^(\D*?)([\d.,]+)(.*)$/);
   if (!m) return { prefix: "", num: 0, suffix: value };
   const [, prefix, numeric, suffix] = m;
-  const num = Number(numeric.replace(/[,]/g, "")) || 0;
+  const num = Number(numeric.replace(/,/g, "")) || 0;
   return { prefix, num, suffix };
 }
 
+/* ---------- CountUp ---------- */
 function CountUp({
   target,
   start,
@@ -36,16 +38,14 @@ function CountUp({
     const to = target;
     const total = duration * 1000;
     const startAt = performance.now();
-    let raf = 0;
 
-    const tick = (now: number) => {
+    let raf = requestAnimationFrame(function tick(now: number) {
       const t = Math.min((now - startAt) / total, 1);
       const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
       setVal(Math.round(from + (to - from) * eased));
       if (t < 1) raf = requestAnimationFrame(tick);
-    };
+    });
 
-    raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [start, target, duration]);
 
@@ -58,7 +58,7 @@ function CountUp({
   );
 }
 
-/* ---------- Stat & Strip ---------- */
+/* ---------- Stat ---------- */
 type StatProps = {
   value: string;
   label: string;
@@ -70,7 +70,7 @@ type StatProps = {
   className?: string;
 };
 
-const Stat: React.FC<StatProps> = ({
+const Stat = ({
   value,
   label,
   numberSize = "text-2xl",
@@ -79,7 +79,7 @@ const Stat: React.FC<StatProps> = ({
   labelWeight = "font-light",
   start = false,
   className = "",
-}) => {
+}: StatProps) => {
   const { prefix, num, suffix } = parseNumeric(value);
   return (
     <div className={`text-center ${className}`}>
@@ -90,13 +90,12 @@ const Stat: React.FC<StatProps> = ({
         suffix={suffix}
         className={`${numberSize} ${numberWeight} tracking-tight`}
       />
-      <div className={`mt-1 ${labelSize} ${labelWeight}`}>
-        {label}
-      </div>
+      <div className={`mt-1 ${labelSize} ${labelWeight}`}>{label}</div>
     </div>
   );
 };
 
+/* ---------- Strip ---------- */
 type StatsStripProps = {
   numberSize?: string;
   numberWeight?: string;
@@ -105,19 +104,19 @@ type StatsStripProps = {
   className?: string;
 };
 
-const StatsStrip: React.FC<StatsStripProps> = ({
+export default function StatsStrip({
   numberSize,
   numberWeight,
   labelSize,
   labelWeight,
   className = "",
-}) => {
+}: StatsStripProps) {
   const { ref, inView } = useInViewport<HTMLDivElement>();
 
   return (
     <section className={`bg-neutral-50 ${className}`} ref={ref}>
       <div className="mx-auto w-full">
-        <div className="bg-white border border-neutral-200 shadow-md rounded-none">
+        <div className="rounded-none border border-neutral-200 bg-white shadow-md">
           <div className="mx-auto w-full max-w-5xl px-6">
             <div className="flex flex-col gap-6 py-6 sm:flex-row sm:items-center sm:justify-around">
               <Stat
@@ -153,6 +152,4 @@ const StatsStrip: React.FC<StatsStripProps> = ({
       </div>
     </section>
   );
-};
-
-export default StatsStrip;
+}

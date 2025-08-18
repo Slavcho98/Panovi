@@ -1,7 +1,9 @@
 import { useRef } from "react";
+
 import type { IconType } from "react-icons";
 import { LuShieldCheck } from "react-icons/lu";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
+
 import CertificateItem from "./CertificateItem";
 import certificatesImg from "../../assets/certificates.png";
 
@@ -42,10 +44,11 @@ export default function CertificatesList({
           </p>
         </div>
 
+        {/* Mobile slider */}
         <div className="relative sm:hidden">
           <div
             ref={railRef}
-            className="-mx-4 flex snap-x snap-mandatory overflow-x-auto gap-4 px-4 scroll-px-4"
+            className="-mx-4 flex snap-x snap-mandatory overflow-x-auto gap-4 px-4 scroll-px-4 no-scrollbar"
             role="region"
             aria-label="Certificates"
           >
@@ -56,11 +59,7 @@ export default function CertificatesList({
                 aria-roledescription="slide"
                 aria-label={`Slide ${i + 1} of ${items.length}`}
               >
-                <CertificateItem
-                  label={label}
-                  icon={cardIcon}
-                  className="h-full"
-                />
+                <CertificateItem label={label} icon={cardIcon} className="h-full" />
               </div>
             ))}
           </div>
@@ -83,6 +82,7 @@ export default function CertificatesList({
           </div>
         </div>
 
+        {/* Desktop grid */}
         <div className="hidden sm:grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((label, i) => (
             <CertificateItem key={i} label={label} icon={cardIcon} />
@@ -111,9 +111,9 @@ export default function CertificatesList({
                 Our Factory In Probishtip
               </h3>
               <p className="mt-2 max-w-3xl text-white/90 text-xs sm:text-sm md:text-base drop-shadow font-light">
-                A State-Of-The-Art Facility Where Traditional Craftsmanship
-                Meets Modern Technology, Producing Premium Textile Solutions For
-                Clients Across Europe
+                A State-Of-The-Art Facility Where Traditional Craftsmanship Meets
+                Modern Technology, Producing Premium Textile Solutions For Clients
+                Across Europe
               </p>
             </div>
           </div>

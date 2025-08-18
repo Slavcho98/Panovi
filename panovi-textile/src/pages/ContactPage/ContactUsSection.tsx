@@ -7,7 +7,7 @@ export default function ContactUs() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-16 md:grid-cols-2">
           <ContactMapCard
-            address="Str. Miro Baraga nn, 2210 Probishtip, North Macedonia"
+            address="Miro Baraga nn, 2210 Probishtip, North Macedonia"
             locationName="PANOVI DOOEL"
             zoom={15}
           />

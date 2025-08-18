@@ -147,7 +147,7 @@ export default function ContactForm({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#2E7BFF] to-[#1AA3FF] px-5 py-2.5 text-sm font-medium text-white shadow hover:opacity-95 disabled:opacity-60"
+              className="inline-flex items-center cursor-pointer gap-2 rounded-full bg-gradient-to-r from-[#2E7BFF] to-[#1AA3FF] px-5 py-2.5 text-sm font-medium text-white shadow hover:opacity-95 disabled:opacity-60"
             >
               <LuSend className="h-4 w-4" />
               {isSubmitting ? "Sending..." : "Send Message"}

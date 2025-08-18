@@ -29,7 +29,7 @@ import StatusLabel from "../ui/StatusLabel";
 const METRICS: MetricItemProps[] = [
   {
     icon: LuLayers,
-    value: "5,000m² Manufacturing",
+    value: "2,000m² Manufacturing",
     label: "Certified Facility",
   },
   {

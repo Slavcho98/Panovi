@@ -14,7 +14,7 @@ type ContactMapCardProps = {
 export default function ContactMapCard({
   title = "Find Our Location",
   subtitle = "Visit our state-of-the-art manufacturing facility equipped with professional JUKI equipment and certified to international standards.",
-  address = "Str. Miro Baraga nn, 2210 Probishtip, North Macedonia",
+  address = "PANOVI DOOEL, Miro Baraga 56, Probištip 2210, North Macedonia",
   locationName = "PANOVI DOOEL",
   ctaLabel = "Get Directions",
   directionsHref,
@@ -24,10 +24,11 @@ export default function ContactMapCard({
   const encoded = encodeURIComponent(address);
   const embedUrl = `https://www.google.com/maps?q=${encoded}&z=${zoom}&output=embed`;
   const dirUrl =
-    directionsHref ?? `https://www.google.com/maps/dir/?api=1&destination=${encoded}`;
+    directionsHref ??
+    `https://www.google.com/maps/dir/?api=1&destination=${encoded}`;
 
   const parts = address.split(",");
-  const country = parts.pop()?.trim() ?? "";
+  const country = (parts.pop() || "").trim();
   const rest = parts.join(",").trim();
 
   return (

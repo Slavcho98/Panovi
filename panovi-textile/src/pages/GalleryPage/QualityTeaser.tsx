@@ -14,9 +14,9 @@ export default function QualityTeaser({
   boxClassName = "",
 }: QualityTeaserProps) {
   return (
-    <section className={`w-full py-12 sm:py-16 ${className}`}>
+    <section className={`w-full py-12 sm:py-16 px-4 sm:px-6 ${className}`}>
       <div
-        className={`mx-auto w-4/5 rounded-[26px] border border-neutral-200 bg-white/90 shadow-[0_6px_0_rgba(0,0,0,0.08)] ${boxClassName}`}
+        className={`mx-auto w-full sm:w-4/5 rounded-[26px] border border-neutral-200 bg-white/90 shadow-[0_6px_0_rgba(0,0,0,0.08)] ${boxClassName}`}
       >
         <div className="px-6 py-8 text-center sm:px-10 sm:py-10">
           <h3 className="text-lg sm:text-xl font-semibold text-neutral-800">

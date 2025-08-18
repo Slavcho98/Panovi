@@ -9,6 +9,7 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Gallery from "./pages/Gallery";
 import CookieConsent from "./components/CookieConsent";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 export default function App() {
   return (
@@ -27,9 +28,10 @@ export default function App() {
         <Route element={<AppLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="gallery" element={<Gallery />} />
+          <Route path="process" element={<Gallery />} />
           <Route path="certificates" element={<Certificates />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="privacy" element={<PrivacyPolicy />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

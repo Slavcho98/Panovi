@@ -1,19 +1,16 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import heroImg from "../../assets/hero.png";
 
-const Hero: React.FC = () => {
+export default function Hero() {
   return (
-    <section className="relative">
-      <div className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="panovi-banner"
-          className="h-[60dvh] md:h-[80dvh] w-full object-cover object-center"
-        />
-      </div>
+    <section className="relative h-[60dvh] md:h-[80dvh] overflow-hidden">
+      <img
+        src={heroImg}
+        alt="panovi-banner"
+        className="absolute inset-0 h-full w-full object-cover object-center"
+      />
 
-      <div className="relative mx-auto flex h-[80vh] w-full max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl text-center text-white">
           <h1 className="text-3xl sm:text-4xl lg:text-[48px] leading-[1]">
             Crafting Custom Apparel For
@@ -33,6 +30,4 @@ const Hero: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

@@ -24,9 +24,11 @@ export default function ManufacturingExcellence({
     : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4";
 
   return (
-    <section
-      className={`bg-gradient-to-br from-[#0E2241] to-[#0A1830] text-white ${className}`}
-    >
+    <section className={`relative overflow-hidden text-white ${className}`}>
+      {/* Radial gradient + subtle dark veil */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(120%_120%_at_50%_0%,#1E3C72_0%,#0A1A3C_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-black/10" />
+
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
         <div className="text-center">
           {statusLabel && (
@@ -42,7 +44,7 @@ export default function ManufacturingExcellence({
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-base sm:text-lg text-slate-300 font-light">
+        <p className="mx-auto mt-6 max-w-3xl text-base sm:text-lg text-slate-300 font-light">
             {description}
           </p>
         </div>

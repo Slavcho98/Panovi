@@ -27,7 +27,7 @@ export default function App() {
         <Route element={<AppLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="gallery" element={<Gallery />} />
+          <Route path="process" element={<Gallery />} />
           <Route path="certificates" element={<Certificates />} />
           <Route path="contact" element={<Contact />} />
         </Route>

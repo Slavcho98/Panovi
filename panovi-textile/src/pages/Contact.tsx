@@ -45,15 +45,15 @@ const CONTACT_CARDS = [
   {
     icon: LuClock3,
     title: "Business Hours",
-    line1: "Mon - Fri: 07:00 - 14:30",
-    line2: "Sat: 07:30 - 12:00",
+    line1: "Mon - Fri: 07:00 - 15:00",
+    line2: "Sat - Sun: Closed",
     accent: "#8b5cf6",
   },
 ];
 
 function Contact() {
   return (
-    <div className="bg-[#F4F7FC]">
+    <div>
       <ManufacturingExcellence
         items={METRICS}
         headingLead="Get in"

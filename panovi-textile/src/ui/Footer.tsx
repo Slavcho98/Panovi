@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FaLinkedin, FaFacebook } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import logoLight from "../assets/logo-white.png";
 
@@ -18,15 +18,15 @@ const Footer: React.FC = () => {
 
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="https://www.linkedin.com"
+              href="https://www.linkedin.com/company/panovidooel/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md ring-1 ring-white/20 hover:ring-white/40"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-md ring-1 ring-white/20 hover:ring-white/40"
               >
-                <FaLinkedin />
+                <FaLinkedin className="text-4xl"/>
               </a>
-              <a
+              {/* <a
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noreferrer"
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
                 className="inline-flex h-9 w-9 items-center justify-center rounded-md ring-1 ring-white/20 hover:ring-white/40"
               >
                 <FaFacebook />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -43,11 +43,21 @@ const Footer: React.FC = () => {
             <ul className="mt-4 space-y-3 text-sm text-white/80">
               <li className="flex items-start gap-3">
                 <FiPhone className="mt-0.5 shrink-0" />
-                <span>+389 072-227-285</span>
+                <a
+                  href="tel:+38972227215"
+                  className="hover:text-white underline-offset-4 hover:underline"
+                >
+                  +389 72 227 215
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <FiMail className="mt-0.5 shrink-0" />
-                <span>panovi.vladimir@gmail.com</span>
+                <a
+                  href="mailto:panovi.vladimir@gmail.com"
+                  className="hover:text-white underline-offset-4 hover:underline break-words"
+                >
+                  panovi.vladimir@gmail.com
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <FiMapPin className="mt-0.5 shrink-0" />
@@ -74,7 +84,7 @@ const Footer: React.FC = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/gallery" className="hover:text-white">
+                <NavLink to="/process" className="hover:text-white">
                   Gallery
                 </NavLink>
               </li>
@@ -101,11 +111,7 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col items-center justify-between gap-3 text-base text-white font-light sm:flex-row">
           <p>© {new Date().getFullYear()} Panovi DOOEL. All rights reserved.</p>
-          <a
-            href="#"
-            className="hover:text-white"
-            title="Designed by Adrijan G"
-          >
+          <a href="#" className="hover:text-white" title="Designed by Adrijan G">
             designed by Adrijan G
           </a>
         </div>

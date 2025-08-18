@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 
 import img1 from "../../assets/factory-1.jpg";
@@ -8,7 +8,7 @@ import img4 from "../../assets/factory-4.jpg";
 
 const IMAGES: string[] = [img1, img2, img3, img4];
 
-const FactoryShowcase: React.FC = () => {
+export default function FactoryShowcase() {
   const railRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: 1 | -1) => {
@@ -32,17 +32,16 @@ const FactoryShowcase: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-900">
             Our Textile Factory
           </h2>
-          <p className="mx-auto mt-3 max-w-3xl text-sm md:text-base leading-7 text-neutral-600">
-            A modern textile facility specialized in high-quality workwear and corporate apparel — driven by
-            innovation, precision, and over two decades of industry expertise.
+          <p className="mx-auto mt-3 max-w-3xl text-sm md:text-base leading-7 font-light">
+            A modern textile facility specialized in high-quality workwear and corporate apparel — driven
+            by innovation, precision, and over two decades of industry expertise.
           </p>
         </div>
 
-        {/* Mobile slider (< md) */}
         <div className="mt-8 md:hidden relative">
           <div
             ref={railRef}
-            className="flex snap-x snap-mandatory overflow-x-auto gap-4 scroll-px-4 pr-4"
+            className="flex snap-x snap-mandatory overflow-x-auto no-scrollbar gap-4 scroll-px-4 pr-4"
             role="region"
             aria-label="Factory images"
           >
@@ -58,7 +57,6 @@ const FactoryShowcase: React.FC = () => {
             ))}
           </div>
 
-          {/* Prev / Next */}
           <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between px-1">
             <button
               onClick={() => scroll(-1)}
@@ -77,7 +75,6 @@ const FactoryShowcase: React.FC = () => {
           </div>
         </div>
 
-        {/* Tablet and up: grid (md:2, lg:4) */}
         <div className="mt-8 hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4">
           {IMAGES.map((src, i) => (
             <Card key={i} src={src} alt={`Factory image ${i + 1}`} />
@@ -86,6 +83,4 @@ const FactoryShowcase: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default FactoryShowcase;
+}

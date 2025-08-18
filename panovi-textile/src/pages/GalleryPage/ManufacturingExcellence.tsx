@@ -35,14 +35,14 @@ export default function ManufacturingExcellence({
             </div>
           )}
 
-          <h2 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl font-light tracking-tight">
             <span className="block">{headingLead}</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#2E7BFF] to-[#1AA3FF]">
               {headingHighlight}
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-base sm:text-lg text-slate-300">
+          <p className="mx-auto mt-6 max-w-3xl text-base sm:text-lg text-slate-300 font-light">
             {description}
           </p>
         </div>

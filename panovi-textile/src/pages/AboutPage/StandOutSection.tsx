@@ -20,11 +20,11 @@ export default function StandOutSection() {
         <div className="grid gap-8 md:grid-cols-2 md:items-center">
           <VideoPlaceholder />
           <div className="space-y-3">
-            <p className="text-sm text-slate-300">crafted to make</p>
+            <p className="text-[14px] font-light uppercase tracking-widest mb-1">crafted to make</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight uppercase">
               You Stand Out
             </h2>
-            <p className="text-sm sm:text-base leading-relaxed text-slate-200">
+            <p className="text-sm sm:text-base leading-relaxed text-slate-200 font-light">
               modern textile factory with a{" "}
               <span className="font-semibold">high level of mechanization</span>
               , a{" "}

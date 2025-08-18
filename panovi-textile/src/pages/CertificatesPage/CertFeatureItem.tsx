@@ -1,4 +1,3 @@
-// components/CertFeatureItem.tsx
 import type { IconType } from "react-icons";
 
 type CertFeatureItemProps = {
@@ -15,7 +14,9 @@ export default function CertFeatureItem({
   className = "",
 }: CertFeatureItemProps) {
   return (
-    <div className={`rounded-2xl border border-neutral-200 bg-white p-6 text-center shadow-sm ${className}`}>
+    <div
+      className={`rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm ${className}`}
+    >
       <div className="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl ring-1 ring-blue-400/40">
         <Icon className="h-6 w-6 text-blue-500" />
       </div>

@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
           <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-white/80">
             Get to know
           </p>
-          <h1 className="mt-2 text-5xl sm:text-6xl lg:text-7xl font-bold leading-[0.9] uppercase">
+          <h1 className="mt-2 text-5xl sm:text-6xl lg:text-7xl font-semibold leading-[0.9] uppercase">
         who we are
           </h1>
         </div>

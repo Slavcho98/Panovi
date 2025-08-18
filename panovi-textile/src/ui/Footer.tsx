@@ -18,23 +18,14 @@ const Footer: React.FC = () => {
 
             <div className="mt-6 flex items-center gap-3">
               <a
-              href="https://www.linkedin.com/company/panovidooel/"
+                href="https://www.linkedin.com/company/panovidooel/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
                 className="inline-flex h-12 w-12 items-center justify-center rounded-md ring-1 ring-white/20 hover:ring-white/40"
               >
-                <FaLinkedin className="text-4xl"/>
+                <FaLinkedin className="text-4xl" />
               </a>
-              {/* <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md ring-1 ring-white/20 hover:ring-white/40"
-              >
-                <FaFacebook />
-              </a> */}
             </div>
           </div>
 
@@ -73,36 +64,12 @@ const Footer: React.FC = () => {
           <div className="md:col-span-3">
             <h4 className="text-sm font-semibold tracking-wider">MENU</h4>
             <ul className="mt-4 space-y-3 text-sm text-white/80">
-              <li>
-                <NavLink to="/" className="hover:text-white">
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/about" className="hover:text-white">
-                  About Us
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/process" className="hover:text-white">
-                  Gallery
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/certificates" className="hover:text-white">
-                  Certificates
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact" className="hover:text-white">
-                  Contact
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact" className="hover:text-white">
-                  Find us
-                </NavLink>
-              </li>
+              <li><NavLink to="/" className="hover:text-white">Home</NavLink></li>
+              <li><NavLink to="/about" className="hover:text-white">About Us</NavLink></li>
+              <li><NavLink to="/process" className="hover:text-white">Gallery</NavLink></li>
+              <li><NavLink to="/certificates" className="hover:text-white">Certificates</NavLink></li>
+              <li><NavLink to="/contact" className="hover:text-white">Contact</NavLink></li>
+              <li><NavLink to="/privacy" className="hover:text-white">Privacy Policy</NavLink></li>
             </ul>
           </div>
         </div>
@@ -111,9 +78,18 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col items-center justify-between gap-3 text-base text-white font-light sm:flex-row">
           <p>© {new Date().getFullYear()} Panovi DOOEL. All rights reserved.</p>
-          <a href="#" className="hover:text-white" title="Designed by Adrijan G">
-            designed by Adrijan G
-          </a>
+          <p>
+            designed by{" "}
+            <a
+              href="https://www.linkedin.com/in/adrijan-georgievski?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white underline-offset-4 underline"
+              title="Adrijan G"
+            >
+              Adrijan G
+            </a>
+          </p>
         </div>
       </div>
     </footer>

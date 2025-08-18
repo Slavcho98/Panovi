@@ -45,10 +45,10 @@ const LeftBlock = ({
   icon?: React.ReactNode;
 }) => (
   <div>
-    <h3 className="text-white text-2xl sm:text-[26px] font-semibold tracking-tight">
+    <h3 className="text-white text-2xl sm:text-[32px] font-medium tracking-tight">
       {title}
     </h3>
-    <p className="mt-2 max-w-xl text-sm leading-7 text-white/75">{children}</p>
+    <p className="mt-2 max-w-xl text-sm leading-7 text-white font-light">{children}</p>
     <Pill to={to} icon={icon}>
       {ctaText}
     </Pill>

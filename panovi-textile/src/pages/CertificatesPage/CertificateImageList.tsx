@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { LuX } from "react-icons/lu";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
-import CertificateImageItem, { type CertificateImageItemProps } from "./CertificateImageItem";
+import CertificateImageItem, {
+  type CertificateImageItemProps,
+} from "./CertificateImageItem";
 
 type CertificateImageListProps = {
   items: CertificateImageItemProps[];
@@ -42,13 +44,20 @@ function Lightbox({
       role="dialog"
       aria-modal="true"
     >
-      <div className="relative w-full max-w-xl sm:max-w-2xl" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="relative w-full max-w-xl sm:max-w-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
         <img
           src={src}
           alt={alt}
           className="mx-auto max-h-[70vh] w-auto max-w-full object-contain rounded-xl shadow-2xl bg-white"
         />
-        {caption && <div className="mt-3 text-center text-white/90 text-sm">{caption}</div>}
+        {caption && (
+          <div className="mt-3 text-center text-white/90 text-sm">
+            {caption}
+          </div>
+        )}
         <button
           onClick={onClose}
           className="absolute cursor-pointer -top-4 -right-4 grid h-10 w-10 place-items-center rounded-full bg-white text-neutral-800 shadow-lg ring-1 ring-black/10 hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-blue-500/60"
@@ -67,7 +76,9 @@ export default function CertificateImageList({
   title = "Our Certifications",
   subtitle = "Committed to excellence through internationally recognized standards and certifications that demonstrate our dedication to quality, safety, and environmental responsibility.",
 }: CertificateImageListProps) {
-  const [selected, setSelected] = useState<CertificateImageItemProps | null>(null);
+  const [selected, setSelected] = useState<CertificateImageItemProps | null>(
+    null
+  );
   const railRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: 1 | -1) => {
@@ -80,11 +91,16 @@ export default function CertificateImageList({
     <section className={`w-full ${className}`}>
       <div className="mx-auto w-[90%] py-12 sm:py-16">
         <header className="mx-auto mb-8 sm:mb-10 max-w-4xl text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-neutral-800">{title}</h2>
-          {subtitle && <p className="mt-3 text-base sm:text-lg text-neutral-500">{subtitle}</p>}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-800">
+            {title}
+          </h2>
+          {subtitle && (
+            <p className="mt-3 text-base sm:text-lg text-neutral-500 font-light">
+              {subtitle}
+            </p>
+          )}
         </header>
 
-        {/* Mobile slider (< sm) */}
         <div className="relative sm:hidden">
           <div
             ref={railRef}
@@ -99,7 +115,11 @@ export default function CertificateImageList({
                 aria-roledescription="slide"
                 aria-label={`Slide ${i + 1} of ${items.length}`}
               >
-                <CertificateImageItem {...it} onOpen={() => setSelected(it)} className="h-full" />
+                <CertificateImageItem
+                  {...it}
+                  onOpen={() => setSelected(it)}
+                  className="h-full"
+                />
               </div>
             ))}
           </div>
@@ -125,7 +145,11 @@ export default function CertificateImageList({
         {/* Tablet & Desktop grid (>= sm) */}
         <div className="hidden sm:grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {items.map((it, i) => (
-            <CertificateImageItem key={i} {...it} onOpen={() => setSelected(it)} />
+            <CertificateImageItem
+              key={i}
+              {...it}
+              onOpen={() => setSelected(it)}
+            />
           ))}
         </div>
       </div>
@@ -135,7 +159,9 @@ export default function CertificateImageList({
         onClose={() => setSelected(null)}
         src={selected?.src ?? ""}
         alt={selected?.alt}
-        caption={selected ? `${selected.title} — ${selected.description}` : undefined}
+        caption={
+          selected ? `${selected.title} — ${selected.description}` : undefined
+        }
       />
     </section>
   );

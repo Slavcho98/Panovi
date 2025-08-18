@@ -18,15 +18,15 @@ const WhoWeAreSection: React.FC = () => {
           </div>
 
           <div className="basis-[40%] grow flex flex-col justify-center">
-            <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
+            <p className="text-xs font-light uppercase tracking-widest">
               get to know
             </p>
-            <h2 className="mt-1 text-2xl font-semibold tracking-tight">
+            <h2 className="mt-1 text-3xl font-semibold tracking-tight">
               WHO WE ARE
             </h2>
-            <p className="mt-3 text-sm leading-7 text-neutral-600">
-              <strong>Panovi</strong> is a textile factory in the Republic of
-              North Macedonia (Made in EUROPE) founded in 1999 by Pance Panov; a
+            <p className="mt-3 text-sm leading-7 font-light">
+              <span className="font-medium">Panovi</span> is a textile factory in the Republic of
+              North Macedonia <span className="font-medium">(Made in EUROPE)</span> founded in 1999 by <span className="font-medium">Pance Panov</span>; a
               factory specializing in work and corporate clothing. Panovi
               actively produces over 60,000 pieces per month, with maximum
               quality, for customers across Europe.

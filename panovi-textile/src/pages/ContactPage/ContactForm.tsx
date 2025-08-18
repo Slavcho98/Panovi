@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { LuSend } from "react-icons/lu";
+import { toast } from "react-hot-toast";
 
 type FormValues = {
   firstName: string;
@@ -28,14 +29,24 @@ export default function ContactForm({
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm<FormValues>();
 
   const onSubmit = async (values: FormValues) => {
     try {
       await onSubmitForm?.(values);
-    } finally {
-      reset({ firstName: "", lastName: "", email: "", company: "", phone: "", subject: "", message: "" });
+      toast.success("Thanks! Your message has been sent.");
+      reset({
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err: any) {
+      toast.error(err?.message || "Failed to send message. Please try again.");
     }
   };
 
@@ -47,10 +58,8 @@ export default function ContactForm({
   return (
     <div className={`space-y-3 ${className}`}>
       <div>
-        <h3 className="text-2xl sm:text-3xl font-semibold text-neutral-900">
-          {title}
-        </h3>
-        <p className="mt-1 text-sm text-neutral-500 max-w-lg">{subtitle}</p>
+        <h3 className="text-2xl sm:text-3xl font-light text-neutral-900">{title}</h3>
+        <p className="mt-1 text-sm text-neutral-500 max-w-lg font-light">{subtitle}</p>
       </div>
 
       <div className="rounded-3xl border border-neutral-200 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] p-5 sm:p-6">
@@ -125,7 +134,10 @@ export default function ContactForm({
               <textarea
                 className={`${inputCls} min-h-[120px]`}
                 placeholder="Tell us about your project requirements, quantities, timeline, and any specific needs."
-                {...register("message", { required: "Message is required", minLength: { value: 10, message: "Please add a bit more detail" } })}
+                {...register("message", {
+                  required: "Message is required",
+                  minLength: { value: 10, message: "Please add a bit more detail" },
+                })}
               />
               {errors.message && <p className={errorCls}>{errors.message.message}</p>}
             </div>
@@ -145,10 +157,6 @@ export default function ContactForm({
           <p className="mt-3 text-[11px] text-neutral-500 text-center">
             * Required fields. We’ll respond within 24 hours during business days.
           </p>
-
-          {isSubmitSuccessful && (
-            <p className="mt-2 text-xs text-emerald-600">Thanks! Your message has been sent.</p>
-          )}
         </form>
       </div>
     </div>

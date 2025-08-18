@@ -33,15 +33,15 @@ export default function CertificatesList({
   return (
     <section className={`py-16 sm:py-20 ${className}`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Header */}
         <div className="mx-auto mb-10 max-w-3xl text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-neutral-800">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-800">
             {title}
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-neutral-500">{subtitle}</p>
+          <p className="mt-3 text-base sm:text-lg text-neutral-500 font-light">
+            {subtitle}
+          </p>
         </div>
 
-        {/* Mobile slider (< sm) */}
         <div className="relative sm:hidden">
           <div
             ref={railRef}
@@ -56,12 +56,15 @@ export default function CertificatesList({
                 aria-roledescription="slide"
                 aria-label={`Slide ${i + 1} of ${items.length}`}
               >
-                <CertificateItem label={label} icon={cardIcon} className="h-full" />
+                <CertificateItem
+                  label={label}
+                  icon={cardIcon}
+                  className="h-full"
+                />
               </div>
             ))}
           </div>
 
-          {/* Prev / Next buttons */}
           <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between px-1">
             <button
               onClick={() => scroll(-1)}
@@ -80,14 +83,12 @@ export default function CertificatesList({
           </div>
         </div>
 
-        {/* Tablet & Desktop grid (>= sm) */}
         <div className="hidden sm:grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((label, i) => (
             <CertificateItem key={i} label={label} icon={cardIcon} />
           ))}
         </div>
 
-        {/* View all */}
         <div className="mt-6 flex justify-center">
           <a
             href={viewAllHref}
@@ -98,7 +99,6 @@ export default function CertificatesList({
           </a>
         </div>
 
-        {/* Background image block */}
         <div
           className="relative mt-10 overflow-hidden rounded-[32px] mx-auto w-[90%] h-80 sm:h-[22rem] md:h-[26rem] bg-center bg-cover bg-no-repeat"
           style={{ backgroundImage: `url(${certificatesImg})` }}
@@ -107,12 +107,13 @@ export default function CertificatesList({
         >
           <div className="absolute inset-0 flex items-end">
             <div className="p-6 md:p-10">
-              <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold drop-shadow-md">
+              <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-light drop-shadow-md">
                 Our Factory In Probishtip
               </h3>
-              <p className="mt-2 max-w-3xl text-white/90 text-xs sm:text-sm md:text-base drop-shadow">
-                A State-Of-The-Art Facility Where Traditional Craftsmanship Meets Modern Technology,
-                Producing Premium Textile Solutions For Clients Across Europe
+              <p className="mt-2 max-w-3xl text-white/90 text-xs sm:text-sm md:text-base drop-shadow font-light">
+                A State-Of-The-Art Facility Where Traditional Craftsmanship
+                Meets Modern Technology, Producing Premium Textile Solutions For
+                Clients Across Europe
               </p>
             </div>
           </div>

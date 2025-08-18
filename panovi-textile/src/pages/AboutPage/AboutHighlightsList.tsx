@@ -20,10 +20,10 @@ const AboutHighlightsList: React.FC<AboutHighlightsListProps> = ({
     <section className="py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <header className="mx-auto mb-10 max-w-3xl text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-neutral-800">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-800">
             {title}
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-neutral-500">
+          <p className="mt-3 text-base sm:text-lg text-neutral-500 font-light">
             {subtitle}
           </p>
         </header>

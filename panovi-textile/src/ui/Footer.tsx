@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
 
         <hr className="my-10 border-white/10" />
 
-        <div className="flex flex-col items-center justify-between gap-3 text-xs text-white/60 sm:flex-row">
+        <div className="flex flex-col items-center justify-between gap-3 text-base text-white font-light sm:flex-row">
           <p>© {new Date().getFullYear()} Panovi DOOEL. All rights reserved.</p>
           <a
             href="#"

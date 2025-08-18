@@ -45,6 +45,7 @@ function Lightbox({
       aria-modal="true"
     >
       <div className="relative w-full max-w-xl sm:max-w-2xl" onClick={(e) => e.stopPropagation()}>
+      <div className="relative w-full max-w-xl sm:max-w-2xl" onClick={(e) => e.stopPropagation()}>
         <img
           src={src}
           alt={alt}

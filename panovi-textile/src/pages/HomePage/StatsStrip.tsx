@@ -67,6 +67,7 @@ type StatProps = {
   labelSize?: string;
   labelWeight?: string;
   start?: boolean;
+  start?: boolean;
   className?: string;
 };
 
@@ -102,6 +103,7 @@ type StatsStripProps = {
   labelSize?: string;
   labelWeight?: string;
   className?: string;
+  className?: string;
 };
 
 export default function StatsStrip({
@@ -115,9 +117,11 @@ export default function StatsStrip({
 
   return (
     <section className={`bg-neutral-50 ${className}`} ref={ref}>
+    <section className={`bg-neutral-50 ${className}`} ref={ref}>
       <div className="mx-auto w-full">
         <div className="rounded-none border border-neutral-200 bg-white shadow-md">
           <div className="mx-auto w-full max-w-5xl px-6">
+            <div className="flex flex-col gap-6 py-6 sm:flex-row sm:items-center sm:justify-around">
             <div className="flex flex-col gap-6 py-6 sm:flex-row sm:items-center sm:justify-around">
               <Stat
                 value="60,000+"
@@ -126,6 +130,7 @@ export default function StatsStrip({
                 numberWeight={numberWeight}
                 labelSize={labelSize}
                 labelWeight={labelWeight}
+                start={inView}
                 start={inView}
               />
               <Stat
@@ -136,6 +141,7 @@ export default function StatsStrip({
                 labelSize={labelSize}
                 labelWeight={labelWeight}
                 start={inView}
+                start={inView}
               />
               <Stat
                 value="1"
@@ -144,6 +150,7 @@ export default function StatsStrip({
                 numberWeight={numberWeight}
                 labelSize={labelSize}
                 labelWeight={labelWeight}
+                start={inView}
                 start={inView}
               />
             </div>

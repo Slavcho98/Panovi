@@ -38,7 +38,6 @@ export default function FactoryShowcase() {
           </p>
         </div>
 
-        {/* Mobile slider (< md) */}
         <div className="mt-8 md:hidden relative">
           <div
             ref={railRef}
@@ -76,23 +75,6 @@ export default function FactoryShowcase() {
           </div>
         </div>
 
-        {/* Tablet and up: grid (md:2, lg:4) */}
-        <div className="mt-8 hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {IMAGES.map((src, i) => (
-            <Card key={i} src={src} alt={`Factory image ${i + 1}`} />
-              <IoChevronBackOutline className="h-5 w-5" aria-hidden />
-            </button>
-            <button
-              onClick={() => scroll(1)}
-              className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-neutral-800 shadow ring-1 ring-black/10 hover:bg-white"
-              aria-label="Next"
-            >
-              <IoChevronForwardOutline className="h-5 w-5" aria-hidden />
-            </button>
-          </div>
-        </div>
-
-        {/* Tablet and up: grid (md:2, lg:4) */}
         <div className="mt-8 hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4">
           {IMAGES.map((src, i) => (
             <Card key={i} src={src} alt={`Factory image ${i + 1}`} />

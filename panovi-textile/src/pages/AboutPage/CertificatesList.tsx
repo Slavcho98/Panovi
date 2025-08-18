@@ -32,18 +32,9 @@ export default function CertificatesList({
     el.scrollBy({ left: dir * el.clientWidth * 0.9, behavior: "smooth" });
   };
 
-  const railRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (dir: 1 | -1) => {
-    const el = railRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir * el.clientWidth * 0.9, behavior: "smooth" });
-  };
-
   return (
     <section className={`py-16 sm:py-20 ${className}`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Header */}
         <div className="mx-auto mb-10 max-w-3xl text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-800">
             {title}
@@ -98,7 +89,6 @@ export default function CertificatesList({
           ))}
         </div>
 
-        {/* View all */}
         <div className="mt-6 flex justify-center">
           <a
             href={viewAllHref}
@@ -109,7 +99,6 @@ export default function CertificatesList({
           </a>
         </div>
 
-        {/* Background image block */}
         <div
           className="relative mt-10 overflow-hidden rounded-[32px] mx-auto w-[90%] h-80 sm:h-[22rem] md:h-[26rem] bg-center bg-cover bg-no-repeat"
           style={{ backgroundImage: `url(${certificatesImg})` }}
@@ -122,9 +111,8 @@ export default function CertificatesList({
                 Our Factory In Probishtip
               </h3>
               <p className="mt-2 max-w-3xl text-white/90 text-xs sm:text-sm md:text-base drop-shadow font-light">
-                A State-Of-The-Art Facility Where Traditional Craftsmanship Meets
-                Modern Technology, Producing Premium Textile Solutions For Clients
-                Across Europe
+                A State-Of-The-Art Facility Where Traditional Craftsmanship Meets Modern Technology, Producing Premium
+                Textile Solutions For Clients Across Europe
               </p>
             </div>
           </div>

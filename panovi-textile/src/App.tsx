@@ -10,6 +10,7 @@ import AppLayout from "./pages/AppLayout";
 import Gallery from "./pages/Gallery";
 import CookieConsent from "./components/CookieConsent";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import ScrollToTop from "./ui/ScrollToTop";
 
 export default function App() {
   return (
@@ -23,6 +24,8 @@ export default function App() {
           error: { iconTheme: { primary: "#ef4444", secondary: "#fff" } },
         }}
       />
+
+      <ScrollToTop behavior="smooth" />
 
       <Routes>
         <Route element={<AppLayout />}>

@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { NavLink } from "react-router-dom";
 
 import type { IconType } from "react-icons";
 import { LuShieldCheck } from "react-icons/lu";
@@ -21,7 +22,7 @@ export default function CertificatesList({
   subtitle = "We maintain the highest international standards through rigorous certification processes that validate our commitment to quality, safety, and sustainability.",
   items,
   cardIcon,
-  viewAllHref = "#",
+  viewAllHref = "/certificates",
   className = "",
 }: CertificatesListProps) {
   const railRef = useRef<HTMLDivElement>(null);
@@ -44,7 +45,6 @@ export default function CertificatesList({
           </p>
         </div>
 
-        {/* Mobile slider */}
         <div className="relative sm:hidden">
           <div
             ref={railRef}
@@ -59,7 +59,11 @@ export default function CertificatesList({
                 aria-roledescription="slide"
                 aria-label={`Slide ${i + 1} of ${items.length}`}
               >
-                <CertificateItem label={label} icon={cardIcon} className="h-full" />
+                <CertificateItem
+                  label={label}
+                  icon={cardIcon}
+                  className="h-full"
+                />
               </div>
             ))}
           </div>
@@ -82,7 +86,6 @@ export default function CertificatesList({
           </div>
         </div>
 
-        {/* Desktop grid */}
         <div className="hidden sm:grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((label, i) => (
             <CertificateItem key={i} label={label} icon={cardIcon} />
@@ -90,13 +93,13 @@ export default function CertificatesList({
         </div>
 
         <div className="mt-6 flex justify-center">
-          <a
-            href={viewAllHref}
+          <NavLink
+            to={viewAllHref}
             className="inline-flex items-center gap-2 rounded-full border border-sky-400 px-5 py-2 text-sm font-medium text-sky-600 hover:bg-sky-50"
           >
             View All Certifications
             <LuShieldCheck className="h-4 w-4" />
-          </a>
+          </NavLink>
         </div>
 
         <div
@@ -111,8 +114,9 @@ export default function CertificatesList({
                 Our Factory In Probishtip
               </h3>
               <p className="mt-2 max-w-3xl text-white/90 text-xs sm:text-sm md:text-base drop-shadow font-light">
-                A State-Of-The-Art Facility Where Traditional Craftsmanship Meets Modern Technology, Producing Premium
-                Textile Solutions For Clients Across Europe
+                A State-Of-The-Art Facility Where Traditional Craftsmanship
+                Meets Modern Technology, Producing Premium Textile Solutions For
+                Clients Across Europe
               </p>
             </div>
           </div>

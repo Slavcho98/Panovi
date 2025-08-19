@@ -11,6 +11,7 @@ import img3 from "../../assets/factory-3.jpg";
 import img4 from "../../assets/factory-4.jpg";
 import img5 from "../../assets/factory-5.jpeg";
 import img6 from "../../assets/factory-6.jpeg";
+import { useTranslation } from "react-i18next";
 
 const IMAGES: string[] = [img1, img2, img3, img4, img5, img6];
 
@@ -122,6 +123,7 @@ function Lightbox({
 }
 
 export default function FactoryShowcase() {
+  const { t } = useTranslation();
   const railRef = useRef<HTMLDivElement>(null);
 
   const [active, setActive] = useState<number | null>(null);
@@ -195,12 +197,10 @@ export default function FactoryShowcase() {
       <div className="mx-auto w-[90%] py-14">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-900">
-            Our Textile Factory
+            {t("home.gallery.title")}
           </h2>
           <p className="mx-auto mt-3 max-w-3xl text-sm md:text-base leading-7 font-light">
-            A modern textile facility specialized in high-quality workwear and
-            corporate apparel — driven by innovation, precision, and over two
-            decades of industry expertise.
+            {t("home.gallery.subtitle")}
           </p>
         </div>
 
@@ -244,7 +244,6 @@ export default function FactoryShowcase() {
             ))}
           </div>
 
-      
           <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between px-1">
             <button
               onClick={() => scroll(-1)}

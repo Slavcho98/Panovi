@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { LuX } from "react-icons/lu";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
-import CertificateImageItem, {
-  type CertificateImageItemProps,
-} from "./CertificateImageItem";
+import CertificateImageItem, { type CertificateImageItemProps } from "./CertificateImageItem";
+import { useTranslation } from "react-i18next";
 
 type CertificateImageListProps = {
   items: CertificateImageItemProps[];
@@ -73,12 +72,13 @@ function Lightbox({
 export default function CertificateImageList({
   items,
   className = "",
-  title = "Our Certifications",
-  subtitle = "Committed to excellence through internationally recognized standards and certifications that demonstrate our dedication to quality, safety, and environmental responsibility.",
+  title,
+  subtitle,
 }: CertificateImageListProps) {
-  const [selected, setSelected] = useState<CertificateImageItemProps | null>(
-    null
-  );
+  const { t } = useTranslation();
+  const resolvedTitle = title ?? t("certificatesPage.processCertificates.title");
+  const resolvedSubtitle = subtitle ?? t("certificatesPage.processCertificates.subtitle");
+  const [selected, setSelected] = useState<CertificateImageItemProps | null>(null);
   const railRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: 1 | -1) => {
@@ -92,13 +92,13 @@ export default function CertificateImageList({
       <div className="mx-auto w-[90%] py-12 sm:py-16">
         <header className="mx-auto mb-8 sm:mb-10 max-w-4xl text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-800">
-            {title}
+            {resolvedTitle}
           </h2>
-          {subtitle && (
+          {resolvedSubtitle ? (
             <p className="mt-3 text-base sm:text-lg text-neutral-500 font-light">
-              {subtitle}
+              {resolvedSubtitle}
             </p>
-          )}
+          ) : null}
         </header>
 
         <div className="relative sm:hidden">
@@ -158,9 +158,7 @@ export default function CertificateImageList({
         onClose={() => setSelected(null)}
         src={selected?.src ?? ""}
         alt={selected?.alt}
-        caption={
-          selected ? `${selected.title} — ${selected.description}` : undefined
-        }
+        caption={selected ? `${selected.title} — ${selected.description}` : undefined}
       />
     </section>
   );

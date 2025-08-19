@@ -379,5 +379,22 @@
     "linkedinAria": "LinkedIn",
     "copyright": "© {{year}} Panovi DOOEL. Alle Rechte vorbehalten.",
     "designedBy": "Design von"
+  },
+  "cookies": {
+    "defaultBrand": "dieser Seite",
+    "heading": "Cookies auf {{brand}}",
+    "body": "Wir verwenden Cookies für essenzielle Funktionen und – mit Ihrer Einwilligung – für Analyse und Marketing. Lesen Sie unsere <0>Datenschutzerklärung</0>.",
+    "options": {
+      "analytics": "Analyse",
+      "marketing": "Marketing"
+    },
+    "allow": "Zulassen",
+    "actions": {
+      "accept": "Alle akzeptieren",
+      "reject": "Alle ablehnen",
+      "customize": "Anpassen",
+      "save": "Auswahl speichern",
+      "back": "Zurück"
+    }
   }
 }

@@ -13,72 +13,78 @@ import { SlLocationPin } from "react-icons/sl";
 import ContactCardList from "./ContactPage/ContactCardList";
 import ContactUs from "./ContactPage/ContactUsSection";
 import QualityTeaser from "./GalleryPage/QualityTeaser";
-const METRICS: MetricItemProps[] = [
-  { icon: LuLayers, value: "2,000m²", label: "Manufacturing Facility" },
-  { icon: LuClock3, value: "25+ Years", label: "Years Experience" },
-  { icon: LuGlobe, value: "15+ Countries", label: "Export Markets" },
-  { icon: LuUsers, value: "25+ Specialists", label: "Expert Team" },
-];
-
-const CONTACT_CARDS = [
-  {
-    icon: LuMapPin,
-    title: "Our Location",
-    line1: "PANOVI DOOEL",
-    line2: "North Macedonia",
-    accent: "#ef114d",
-  },
-  {
-    icon: LuPhone,
-    title: "Phone Numbers",
-    line1: "+ 389 72 227 215",
-    line2: "North Macedonia",
-    accent: "#3b82f6",
-  },
-  {
-    icon: LuMail,
-    title: "Email Address",
-    line1: "panovi.vladimir@gmail.com",
-    line2: "North Macedonia",
-    accent: "#10b981",
-  },
-  {
-    icon: LuClock3,
-    title: "Business Hours",
-    line1: "Mon - Fri: 07:00 - 15:00",
-    line2: "Sat - Sun: Closed",
-    accent: "#8b5cf6",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 function Contact() {
+  const { t } = useTranslation();
+
+  const METRICS: MetricItemProps[] = [
+    { icon: LuLayers, value: t("contact.metrics.0.value"), label: t("contact.metrics.0.label") },
+    { icon: LuClock3, value: t("contact.metrics.1.value"), label: t("contact.metrics.1.label") },
+    { icon: LuGlobe,  value: t("contact.metrics.2.value"), label: t("contact.metrics.2.label") },
+    { icon: LuUsers,  value: t("contact.metrics.3.value"), label: t("contact.metrics.3.label") },
+  ];
+
+  const CONTACT_CARDS = [
+    {
+      icon: LuMapPin,
+      title: t("contact.cards.0.title"),
+      line1: t("contact.cards.0.line1"),
+      line2: t("contact.cards.0.line2"),
+      accent: "#ef114d",
+    },
+    {
+      icon: LuPhone,
+      title: t("contact.cards.1.title"),
+      line1: t("contact.cards.1.line1"),
+      line2: t("contact.cards.1.line2"),
+      accent: "#3b82f6",
+    },
+    {
+      icon: LuMail,
+      title: t("contact.cards.2.title"),
+      line1: t("contact.cards.2.line1"),
+      line2: t("contact.cards.2.line2"),
+      accent: "#10b981",
+    },
+    {
+      icon: LuClock3,
+      title: t("contact.cards.3.title"),
+      line1: t("contact.cards.3.line1"),
+      line2: t("contact.cards.3.line2"),
+      accent: "#8b5cf6",
+    },
+  ];
+
   return (
     <div>
       <ManufacturingExcellence
         items={METRICS}
-        headingLead="Get in"
-        headingHighlight="Touch"
-        description="Ready to discuss your textile manufacturing needs? Our certified facility and expert team are here to deliver premium solutions that exceed your expectations"
+        headingLead={t("contact.hero.headingLead")}
+        headingHighlight={t("contact.hero.headingHighlight")}
+        description={t("contact.hero.description")}
         statusLabel={{
-          text: "PANOVI DOOEL • North Macedonia",
+          text: t("contact.hero.statusLabel"),
           icon: SlLocationPin,
           iconColor: "#EF013C",
           bgColor: "#2197FF",
           textColor: "#fff",
         }}
       />
+
       <ContactCardList items={CONTACT_CARDS} />
+
       <ContactUs />
+
       <QualityTeaser
-        title="Ready to Start Your Project?
-"
-        description="With our ISO-certified facility, advanced JUKI equipment, and 25+ years of experience, we're ready to handle projects of any scale. From small custom orders to large production runs, we deliver quality that meets international standards."
+        title={t("contact.teaser.title")}
+        description={t("contact.teaser.description")}
         highlights={[
-          "Quick Response Time",
-          "OEKO-TEX® Sustainable",
-          "Custom Solutions",
-          "Quality Guarantee",
-          "25+ Years Experience",
+          t("contact.teaser.highlights.0"),
+          t("contact.teaser.highlights.1"),
+          t("contact.teaser.highlights.2"),
+          t("contact.teaser.highlights.3"),
+          t("contact.teaser.highlights.4"),
         ]}
       />
     </div>

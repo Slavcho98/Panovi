@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { LuSend } from "react-icons/lu";
 import { toast } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 type FormValues = {
   firstName: string;
@@ -20,11 +21,13 @@ type ContactFormProps = {
 };
 
 export default function ContactForm({
-  title = "Send Us a Message",
-  subtitle = "Ready to discuss your project? Fill out the form below and our team will get back to you within 24 hours.",
+  title,
+  subtitle,
   onSubmitForm,
   className = "",
 }: ContactFormProps) {
+  const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -35,7 +38,7 @@ export default function ContactForm({
   const onSubmit = async (values: FormValues) => {
     try {
       await onSubmitForm?.(values);
-      toast.success("Thanks! Your message has been sent.");
+      toast.success(t("contact.form.toasts.success"));
       reset({
         firstName: "",
         lastName: "",
@@ -46,7 +49,7 @@ export default function ContactForm({
         message: "",
       });
     } catch (err: any) {
-      toast.error(err?.message || "Failed to send message. Please try again.");
+      toast.error(err?.message || t("contact.form.toasts.fail"));
     }
   };
 
@@ -58,85 +61,102 @@ export default function ContactForm({
   return (
     <div className={`space-y-3 ${className}`}>
       <div>
-        <h3 className="text-2xl sm:text-3xl font-light text-neutral-900">{title}</h3>
-        <p className="mt-1 text-sm text-neutral-500 max-w-lg font-light">{subtitle}</p>
+        <h3 className="text-2xl sm:text-3xl font-light text-neutral-900">
+          {title ?? t("contact.form.title")}
+        </h3>
+        <p className="mt-1 text-sm text-neutral-500 max-w-lg font-light">
+          {subtitle ?? t("contact.form.subtitle")}
+        </p>
       </div>
 
       <div className="rounded-3xl border border-neutral-200 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] p-5 sm:p-6">
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className={labelCls}>First Name*</label>
+              <label className={labelCls}>{t("contact.form.fields.firstName.label")}*</label>
               <input
                 className={inputCls}
-                placeholder="Your first name"
-                {...register("firstName", { required: "First name is required" })}
+                placeholder={t("contact.form.fields.firstName.placeholder")}
+                {...register("firstName", {
+                  required: t("contact.form.fields.firstName.required"),
+                })}
               />
               {errors.firstName && <p className={errorCls}>{errors.firstName.message}</p>}
             </div>
 
             <div>
-              <label className={labelCls}>Last Name*</label>
+              <label className={labelCls}>{t("contact.form.fields.lastName.label")}*</label>
               <input
                 className={inputCls}
-                placeholder="Your last name"
-                {...register("lastName", { required: "Last name is required" })}
+                placeholder={t("contact.form.fields.lastName.placeholder")}
+                {...register("lastName", {
+                  required: t("contact.form.fields.lastName.required"),
+                })}
               />
               {errors.lastName && <p className={errorCls}>{errors.lastName.message}</p>}
             </div>
 
             <div className="sm:col-span-2">
-              <label className={labelCls}>Email Address*</label>
+              <label className={labelCls}>{t("contact.form.fields.email.label")}*</label>
               <input
                 className={inputCls}
                 type="email"
-                placeholder="you@email.com"
+                placeholder={t("contact.form.fields.email.placeholder")}
                 {...register("email", {
-                  required: "Email is required",
-                  pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Enter a valid email" },
+                  required: t("contact.form.fields.email.required"),
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: t("contact.form.fields.email.invalid"),
+                  },
                 })}
               />
               {errors.email && <p className={errorCls}>{errors.email.message}</p>}
             </div>
 
             <div>
-              <label className={labelCls}>Company Name*</label>
+              <label className={labelCls}>{t("contact.form.fields.company.label")}*</label>
               <input
                 className={inputCls}
-                placeholder="Your company name"
-                {...register("company", { required: "Company is required" })}
+                placeholder={t("contact.form.fields.company.placeholder")}
+                {...register("company", {
+                  required: t("contact.form.fields.company.required"),
+                })}
               />
               {errors.company && <p className={errorCls}>{errors.company.message}</p>}
             </div>
 
             <div>
-              <label className={labelCls}>Phone Number*</label>
+              <label className={labelCls}>{t("contact.form.fields.phone.label")}*</label>
               <input
                 className={inputCls}
-                placeholder="+ 389 xx xxx xxx"
-                {...register("phone", { required: "Phone is required" })}
+                placeholder={t("contact.form.fields.phone.placeholder")}
+                {...register("phone", {
+                  required: t("contact.form.fields.phone.required"),
+                })}
               />
               {errors.phone && <p className={errorCls}>{errors.phone.message}</p>}
             </div>
 
             <div className="sm:col-span-2">
-              <label className={labelCls}>Subject*</label>
+              <label className={labelCls}>{t("contact.form.fields.subject.label")}*</label>
               <input
                 className={inputCls}
-                placeholder="What can we help you with?"
-                {...register("subject", { required: "Subject is required" })}
+                placeholder={t("contact.form.fields.subject.placeholder")}
+                {...register("subject", {
+                  required: t("contact.form.fields.subject.required"),
+                })}
               />
               {errors.subject && <p className={errorCls}>{errors.subject.message}</p>}
             </div>
 
             <div className="sm:col-span-2">
-              <label className={labelCls}>Message*</label>
+              <label className={labelCls}>{t("contact.form.fields.message.label")}*</label>
               <textarea
                 className={`${inputCls} min-h-[120px]`}
-                placeholder="Tell us about your project requirements, quantities, timeline, and any specific needs."
+                placeholder={t("contact.form.fields.message.placeholder")}
                 {...register("message", {
-                  required: "Message is required",
-                  minLength: { value: 10, message: "Please add a bit more detail" },
+                  required: t("contact.form.fields.message.required"),
+                  minLength: { value: 10, message: t("contact.form.fields.message.minLength") },
                 })}
               />
               {errors.message && <p className={errorCls}>{errors.message.message}</p>}
@@ -150,12 +170,12 @@ export default function ContactForm({
               className="inline-flex items-center cursor-pointer gap-2 rounded-full bg-gradient-to-r from-[#2E7BFF] to-[#1AA3FF] px-5 py-2.5 text-sm font-medium text-white shadow hover:opacity-95 disabled:opacity-60"
             >
               <LuSend className="h-4 w-4" />
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? t("contact.form.submit.sending") : t("contact.form.submit.cta")}
             </button>
           </div>
 
           <p className="mt-3 text-[11px] text-neutral-500 text-center">
-            * Required fields. We’ll respond within 24 hours during business days.
+            {t("contact.form.footerNote")}
           </p>
         </form>
       </div>

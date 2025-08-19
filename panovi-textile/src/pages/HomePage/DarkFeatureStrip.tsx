@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { SlLocationPin } from "react-icons/sl";
 import { PiPresentationChartBold } from "react-icons/pi";
 import { GoShieldCheck } from "react-icons/go";
+import { useTranslation, Trans } from "react-i18next";
 
 const Pill = ({
   to,
@@ -56,20 +57,22 @@ const LeftBlock = ({
 );
 
 const DarkFeatureStrip: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="bg-[#1D2A3D]">
       <div className="mx-auto w-[90%] px-4 py-16 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-14">
+          {/* Visit */}
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
             <div className="lg:w-[70%]">
               <LeftBlock
-                title="Visit our local factory"
-                ctaText="View location"
+                title={t("home.features.visit.title")}
+                ctaText={t("home.features.visit.cta")}
                 to="/contact"
                 icon={<SlLocationPin size={16} />}
               >
-                See where craftsmanship meets innovation. Located in the heart
-                of Probishtip, North Macedonia.
+                {t("home.features.visit.body")}
               </LeftBlock>
             </div>
             <div className="lg:w-[30%] lg:ml-auto">
@@ -77,18 +80,19 @@ const DarkFeatureStrip: React.FC = () => {
             </div>
           </div>
 
+          {/* Quality */}
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
             <div className="lg:w-[70%]">
               <LeftBlock
-                title="What proves our quality"
-                ctaText="See our certificates"
+                title={t("home.features.quality.title")}
+                ctaText={t("home.features.quality.cta")}
                 to="/certificates"
                 icon={<GoShieldCheck size={16} />}
               >
-                Certifications that speak for us:{" "}
-                <span className="font-medium">OEKO-TEX®</span> &amp;{" "}
-                <span className="font-medium">TÜV Austria</span>. Trusted by
-                standards. Proven by results.
+                <Trans i18nKey="home.features.quality.body">
+                  Zertifizierungen, die für uns sprechen: <span className="font-medium">OEKO-TEX®</span> &{" "}
+                  <span className="font-medium">TÜV Austria</span>. Trusted by standards. Proven by results.
+                </Trans>
               </LeftBlock>
             </div>
             <div className="lg:w-[30%] lg:ml-auto">
@@ -96,16 +100,16 @@ const DarkFeatureStrip: React.FC = () => {
             </div>
           </div>
 
+          {/* Process */}
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
             <div className="lg:w-[70%]">
               <LeftBlock
-                title="How we make it happen"
-                ctaText="See behind the scenes"
+                title={t("home.features.process.title")}
+                ctaText={t("home.features.process.cta")}
                 to="/process"
                 icon={<PiPresentationChartBold size={16} />}
               >
-                Crafted with care. Backed by process. Every step is optimized
-                for precision, efficiency, and sustainability.
+                {t("home.features.process.body")}
               </LeftBlock>
             </div>
             <div className="lg:w-[30%] lg:ml-auto">

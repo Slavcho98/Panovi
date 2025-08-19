@@ -1,51 +1,64 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaLinkedin, FaFacebook } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 import logo from "../assets/logo-black.png";
-
-const navItems = [
-  { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
-  { label: "Process", to: "/process" },
-  { label: "Certificates", to: "/certificates" },
-  { label: "Contact", to: "/contact" },
-];
 
 function PageNav() {
   const [open, setOpen] = useState(false);
+  const { t, i18n } = useTranslation();
 
   const linkCls = ({ isActive }: { isActive: boolean }) =>
     [
       "block px-2 py-2 transition-colors",
-      isActive
-        ? "font-semibold text-black"
-        : "text-neutral-600 hover:text-black",
+      isActive ? "font-semibold text-black" : "text-neutral-600 hover:text-black",
     ].join(" ");
+
+  const navItems = [
+    { label: t("nav.home"), to: "/" },
+    { label: t("nav.about"), to: "/about" },
+    { label: t("nav.process"), to: "/process" },
+    { label: t("nav.certificates"), to: "/certificates" },
+    { label: t("nav.contact"), to: "/contact" },
+  ];
+
+  const setLang = (lng: "en" | "de") => i18n.changeLanguage(lng);
+  const lang = (i18n.resolvedLanguage || "en").slice(0, 2);
+
+  const LangButtons = ({ className = "" }: { className?: string }) => (
+    <div className={`flex items-center gap-3 text-sm text-neutral-700 ${className}`}>
+      <button
+        onClick={() => setLang("en")}
+        aria-pressed={lang === "en"}
+        className={`px-1.5 rounded focus:outline-none focus:ring-2 focus:ring-neutral-300 ${
+          lang === "en" ? "font-semibold text-black underline underline-offset-4" : "hover:text-black"
+        }`}
+      >
+        EN
+      </button>
+      <span className="text-neutral-300">|</span>
+      <button
+        onClick={() => setLang("de")}
+        aria-pressed={lang === "de"}
+        className={`px-1.5 rounded focus:outline-none focus:ring-2 focus:ring-neutral-300 ${
+          lang === "de" ? "font-semibold text-black underline underline-offset-4" : "hover:text-black"
+        }`}
+      >
+        DE
+      </button>
+    </div>
+  );
 
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-neutral-200">
       <div className="mx-auto max-w-7xl h-16 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <div className="hidden lg:flex items-center gap-3 text-sm text-neutral-700">
-            <button className="hover:text-black focus:outline-none focus:ring-2 focus:ring-neutral-300 rounded">
-              EN
-            </button>
-            <span className="text-neutral-300">|</span>
-            <button className="hover:text-black focus:outline-none focus:ring-2 focus:ring-neutral-300 rounded">
-              DE
-            </button>
+          <div className="hidden lg:flex">
+            <LangButtons />
           </div>
 
-          <NavLink
-            to="/"
-            onClick={() => setOpen(false)}
-            className="inline-flex"
-          >
-            <img
-              src={logo}
-              alt="Panovi Logo"
-              className="h-8 w-auto select-none"
-            />
+          <NavLink to="/" onClick={() => setOpen(false)} className="inline-flex">
+            <img src={logo} alt="Panovi Logo" className="h-8 w-auto select-none" />
           </NavLink>
         </div>
 
@@ -113,24 +126,12 @@ function PageNav() {
         ].join(" ")}
       >
         <div className="px-4 sm:px-6 py-4 space-y-4">
-          <div className="flex lg:hidden items-center gap-3 text-sm text-neutral-700">
-            <button className="hover:text-black focus:outline-none focus:ring-2 focus:ring-neutral-300 rounded">
-              EN
-            </button>
-            <span className="text-neutral-300">|</span>
-            <button className="hover:text-black focus:outline-none focus:ring-2 focus:ring-neutral-300 rounded">
-              DE
-            </button>
-          </div>
+          <LangButtons />
 
           <ul className="grid gap-1">
             {navItems.map((item) => (
               <li key={item.to}>
-                <NavLink
-                  to={item.to}
-                  className={linkCls}
-                  onClick={() => setOpen(false)}
-                >
+                <NavLink to={item.to} className={linkCls} onClick={() => setOpen(false)}>
                   {item.label}
                 </NavLink>
               </li>

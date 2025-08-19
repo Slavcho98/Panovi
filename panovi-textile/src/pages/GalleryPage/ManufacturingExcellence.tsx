@@ -1,5 +1,6 @@
 import StatusLabel, { type StatusLabelProps } from "../../ui/StatusLabel";
 import MetricItem, { type MetricItemProps } from "./MetricItem";
+import { useTranslation } from "react-i18next";
 
 type ManufacturingExcellenceProps = {
   headingLead?: string;
@@ -11,13 +12,19 @@ type ManufacturingExcellenceProps = {
 };
 
 export default function ManufacturingExcellence({
-  headingLead = "Manufacturing",
-  headingHighlight = "Excellence",
-  description = "From automated cutting systems to precision finishing, our state-of-the-art equipment and expert craftsmanship ensure exceptional quality at every stage of production",
+  headingLead,
+  headingHighlight,
+  description,
   items,
   className = "",
   statusLabel,
 }: ManufacturingExcellenceProps) {
+  const { t } = useTranslation();
+
+  const lead = headingLead ?? t("process.hero.headingLead");
+  const highlight = headingHighlight ?? t("process.hero.headingHighlight");
+  const desc = description ?? t("process.hero.description");
+
   const isThree = items.length === 3;
   const gridCols = isThree
     ? "grid-cols-1 sm:grid-cols-3"
@@ -38,14 +45,14 @@ export default function ManufacturingExcellence({
           )}
 
           <h2 className="text-5xl sm:text-6xl md:text-7xl font-light tracking-tight">
-            <span className="block">{headingLead}</span>
+            <span className="block">{lead}</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#2E7BFF] to-[#1AA3FF]">
-              {headingHighlight}
+              {highlight}
             </span>
           </h2>
 
-        <p className="mx-auto mt-6 max-w-3xl text-base sm:text-lg text-slate-300 font-light">
-            {description}
+          <p className="mx-auto mt-6 max-w-3xl text-base sm:text-lg text-slate-300 font-light">
+            {desc}
           </p>
         </div>
 

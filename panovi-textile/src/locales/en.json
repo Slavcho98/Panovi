@@ -1,0 +1,380 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "process": "Process",
+    "certificates": "Certificates",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "title": "Crafting Custom Apparel For\nEvery Business, Everywhere!",
+      "subtitle": "From Local Dreams To Global Seams",
+      "cta": "Get In Touch",
+      "alt": "Panovi banner"
+    },
+    "whoWeAre": {
+      "kicker": "get to know",
+      "title": "WHO WE ARE",
+      "altSewing": "Sewing at Panovi",
+      "body": "<0>Panovi</0> is a textile factory in the Republic of North Macedonia <1>(Made in EUROPE)</1> founded in 1999 by <2>Pance Panov</2>; a factory specializing in work and corporate clothing. Panovi actively produces over 60,000 pieces per month, with maximum quality, for customers across Europe.",
+      "cta": "More About Us"
+    },
+    "stats": {
+      "piecesPerMonth": "Pieces per month",
+      "employees": "Employees",
+      "factory": "Factory"
+    },
+    "features": {
+      "visit": {
+        "title": "Visit our local factory",
+        "body": "See where craftsmanship meets innovation. Located in the heart of Probishtip, North Macedonia.",
+        "cta": "View location"
+      },
+      "quality": {
+        "title": "What proves our quality",
+        "body": "Certifications that speak for us: <0>OEKO-TEX®</0> & <1>TÜV Austria</1>. Trusted by standards. Proven by results.",
+        "cta": "See our certificates"
+      },
+      "process": {
+        "title": "How we make it happen",
+        "body": "Crafted with care. Backed by process. Every step is optimized for precision, efficiency, and sustainability.",
+        "cta": "See behind the scenes"
+      }
+    },
+    "gallery": {
+      "title": "Our Textile Factory",
+      "subtitle": "A modern textile facility specialized in high-quality workwear and corporate apparel — driven by innovation, precision, and over two decades of industry expertise."
+    }
+  },
+  "about": {
+    "hero": {
+      "kicker": "Get to know",
+      "title": "WHO WE ARE"
+    },
+    "differentiators": [
+      "Modern textile factory with high level of mechanization",
+      "Well-structured organizational system",
+      "Advanced software for real-time production monitoring",
+      "Complete solutions for workwear and corporate clothing",
+      "Latest generation cutting technology",
+      "25+ years of experience in textile industry",
+      "Most competitive factory in the region",
+      "Internationally recognized certifications"
+    ],
+    "certs": [
+      "OEKO–TEX® STeP",
+      "TÜV AUSTRIA",
+      "ISO 9001:2015",
+      "ISO 14001:2015",
+      "ISO 45001:2018",
+      "SA8000:2014",
+      "SEDEX SMETA 4",
+      "ISO 50001:2018"
+    ],
+    "intro": {
+      "p1": "<0>PANOVI</0> is a modern textile factory located in the Republic of North Macedonia – <1>at the heart of Europe</1>, proudly labeled <2>Made in Europe</2>. Founded in <3>1999</3> by <4>Panche Panov</4>, the company has built a strong reputation over more than two decades as a <5>reliable and professional partner</5> in textile manufacturing.",
+      "p2": "The factory is <0>specialized in the production of workwear and corporate clothing</0>, fully tailored to meet the needs of clients across various industries.",
+      "p3": "With a <0>production capacity of over 60,000 garments per month</0>, <1>PANOVI</1> successfully serves <2>clients all across Europe</2>, always delivering <3>maximum quality and precision</3> in every detail.",
+      "p4": "What sets us apart is our <0>commitment to the price–quality ratio</0>, making <1>PANOVI</1> a recognizable name in the textile industry. We combine <2>experience, advanced technology, and high production standards</2> to build long-term partnerships and trust with our clients."
+    },
+    "excellence": {
+      "p1": "Our core motivation lies in delivering <0>quality</0> and a <1>flawless appearance</1> in every single product we create. To ensure maximum efficiency and precision, <2>PANOVI</2> operates with the <3>latest generation cutting technology</3>, allowing for perfect preparation of every garment produced.",
+      "p2": "With over <0>25 years of experience</0> in the textile industry, we are today one of the most <1>competitive and in-demand factories</1> in the region, known for our <2>reliability, organization, and high-quality craftsmanship</2>.",
+      "p3": "Our commitment to meeting the highest industry standards is confirmed through internationally recognized certifications, including <0>OEKO-TEX® STeP</0>, <1>TÜV AUSTRIA</1>, <2>ISO 9001:2015</2>, <3>ISO 14001:2015</3>, <4>ISO 45001:2018</4>, <5>SA8000:2014</5> and <6>SEDEX SMETA 4</6>, ensuring our production complies with strict criteria for environmental sustainability, safety, and social responsibility."
+    },
+    "highlights": {
+      "title": "What Makes Us Different",
+      "subtitle": "Our commitment to excellence is reflected in every aspect of our operation, from advanced technology to sustainable practices."
+    },
+    "standOut": {
+      "kicker": "crafted to make",
+      "title": "You Stand Out",
+      "body": "Modern textile factory with a <0>high level of mechanization</0>, a <1>well-structured organizational system</1>, and advanced software for real-time production monitoring. Thanks to our production process, we offer <2>complete solutions for workwear and corporate clothing</2>, tailored to meet the specific needs of each client."
+    },
+    "ready": {
+      "title": "Ready to Work With Us?",
+      "subtitle": "Experience the PANOVI difference. From concept to completion, we deliver textile solutions that exceed expectations.",
+      "contactCta": "Get In Touch",
+      "processCta": "See Our Process"
+    },
+    "certsSection": {
+      "title": "Our Certifications",
+      "subtitle": "We maintain the highest international standards through rigorous certification processes that validate our commitment to quality, safety, and sustainability.",
+      "viewAllCta": "View All Certifications",
+      "carouselAria": "Certificates",
+      "slideAria": "Slide {{current}} of {{total}}",
+      "imageAlt": "Certificates wall",
+      "bannerTitle": "Our Factory In Probishtip",
+      "bannerSubtitle": "A state-of-the-art facility where traditional craftsmanship meets modern technology, delivering premium textile solutions for clients across Europe."
+    }
+  },
+  "common": {
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "process": {
+    "metrics": [
+      {
+        "value": "60,000+ units/month",
+        "label": "Production Capacity",
+        "helper": "Large-scale manufacturing capability"
+      },
+      {
+        "value": "99.9% First Pass",
+        "label": "Quality Rate",
+        "helper": "Exceptional quality control"
+      },
+      {
+        "value": "Industrial Professional",
+        "label": "Equipment Grade",
+        "helper": "Top-tier manufacturing equipment"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Advanced Pattern & Cutting",
+        "metric": "98.8% Material Efficiency",
+        "label": "Automated CAD/CAM Systems",
+        "description": "State-of-the-art automated cutting systems ensuring precision and minimal waste in every piece."
+      },
+      {
+        "title": "Expert Craftsmanship",
+        "metric": "15+ Years Experience",
+        "label": "JUKI Professional Series",
+        "description": "Skilled artisans operating professional JUKI equipment with precision and attention to detail."
+      },
+      {
+        "title": "Precision Overlocking",
+        "metric": "5000 RPM Capability",
+        "label": "JUKI MO-3900 Series",
+        "description": "Professional JUKI MO-3900 series machines delivering perfect seam finishing and durability."
+      },
+      {
+        "title": "Specialized Finishing",
+        "metric": "Micro-Precision Control",
+        "label": "EH 30 Specialist Equipment",
+        "description": "EH 30 specialized equipment for advanced finishing techniques and quality enhancement."
+      }
+    ],
+    "teaser": {
+      "title": "Ready to Experience Our Quality?",
+      "description": "Our combination of international certifications, advanced equipment, and expert craftsmanship ensures every product meets the highest standards. From automated cutting to precision finishing, we deliver excellence at every stage.",
+      "highlights": [
+        "ISO Certified Quality",
+        "Professional JUKI Equipment",
+        "25+ Years Experience",
+        "Sustainable Operations"
+      ]
+    },
+    "hero": {
+      "headingLead": "Manufacturing",
+      "headingHighlight": "Excellence",
+      "description": "From automated cutting systems to precision finishing, our state-of-the-art equipment and expert craftsmanship ensure exceptional quality at every stage of production"
+    }
+  },
+  "certificatesPage": {
+    "hero": {
+      "headingLead": "Certified",
+      "headingHighlight": "Excellence",
+      "description": "Our comprehensive certification portfolio demonstrates unwavering commitment to quality, environmental responsibility, worker safety, and sustainable manufacturing practices",
+      "statusText": "5 International Certifications"
+    },
+    "metrics": [
+      { "value": "2,000m² Manufacturing", "label": "Certified Facility" },
+      { "value": "15+ Years Certified", "label": "Certification History" },
+      { "value": "100% Current", "label": "Compliance Rate" },
+      { "value": "5 International Standards", "label": "Certification Scope" }
+    ],
+    "list": [
+      {
+        "alt": "OEKO–TEX® STeP",
+        "category": "Environmental Standard",
+        "title": "OEKO–TEX® STeP",
+        "description": "Sustainable Textile Production Certification"
+      },
+      {
+        "alt": "ISO 14001:2015",
+        "category": "Environmental Standard",
+        "title": "ISO 14001:2015",
+        "description": "Environmental Management System"
+      },
+      {
+        "alt": "ISO 9001:2015",
+        "category": "Quality Standard",
+        "title": "ISO 9001:2015",
+        "description": "Quality Management System"
+      },
+      {
+        "alt": "ISO 45001:2018",
+        "category": "Safety Standard",
+        "title": "ISO 45001:2018",
+        "description": "Occupational Health & Safety Management System"
+      },
+      {
+        "alt": "ISO 50001:2018",
+        "category": "Energy Standard",
+        "title": "ISO 50001:2018",
+        "description": "Energy Management System for optimized performance"
+      }
+    ],
+    "features": [
+      {
+        "title": "Compliance Guarantee",
+        "subtitle": "Full regulatory compliance across international markets"
+      },
+      {
+        "title": "Sustainable Operations",
+        "subtitle": "Environmentally responsible manufacturing processes"
+      },
+      {
+        "title": "Quality Assurance",
+        "subtitle": "Consistent high-quality output with systematic controls"
+      },
+      {
+        "title": "Worker Safety",
+        "subtitle": "Comprehensive safety protocols protecting our team"
+      },
+      {
+        "title": "Energy Efficiency",
+        "subtitle": "Optimized energy performance reducing environmental impact"
+      }
+    ],
+    "statusCurrentValid": "All certifications are current and valid",
+    "processCertificates": {
+      "title": "Our Certifications",
+      "subtitle": "Explore our internationally recognized certifications that validate our commitment to quality, safety, sustainability, and responsible manufacturing."
+    },
+    "teaser": {
+      "title": "Complete Standards Compliance",
+      "description": "Our comprehensive certification portfolio spanning quality, environmental management, worker safety, sustainability, and energy efficiency demonstrates our total commitment to responsible manufacturing. Combined with advanced equipment and expert craftsmanship, we deliver excellence at every stage.",
+      "highlights": [
+        "ISO Quality & Safety Certified",
+        "OEKO–TEX® Sustainable",
+        "Energy Management Optimized",
+        "Professional JUKI Equipment",
+        "25+ Years Experience"
+      ]
+    }
+  },
+  "contact": {
+    "hero": {
+      "headingLead": "Get in",
+      "headingHighlight": "Touch",
+      "description": "Ready to discuss your textile manufacturing needs? Our certified facility and expert team are here to deliver premium solutions that exceed your expectations",
+      "statusLabel": "PANOVI DOOEL • North Macedonia"
+    },
+    "metrics": [
+      { "value": "2,000m²", "label": "Manufacturing Facility" },
+      { "value": "25+ Years", "label": "Years Experience" },
+      { "value": "15+ Countries", "label": "Export Markets" },
+      { "value": "25+ Specialists", "label": "Expert Team" }
+    ],
+    "cards": [
+      {
+        "title": "Our Location",
+        "line1": "PANOVI DOOEL",
+        "line2": "North Macedonia"
+      },
+      {
+        "title": "Phone Numbers",
+        "line1": "+ 389 72 227 215",
+        "line2": "North Macedonia"
+      },
+      {
+        "title": "Email Address",
+        "line1": "panovi.vladimir@gmail.com",
+        "line2": "North Macedonia"
+      },
+      {
+        "title": "Business Hours",
+        "line1": "Mon - Fri: 07:00 - 15:00",
+        "line2": "Sat - Sun: Closed"
+      }
+    ],
+    "teaser": {
+      "title": "Ready to Start Your Project?",
+      "description": "With our ISO-certified facility, advanced JUKI equipment, and 25+ years of experience, we're ready to handle projects of any scale. From small custom orders to large production runs, we deliver quality that meets international standards.",
+      "highlights": [
+        "Quick Response Time",
+        "OEKO-TEX® Sustainable",
+        "Custom Solutions",
+        "Quality Guarantee",
+        "25+ Years Experience"
+      ]
+    },
+    "map": {
+      "title": "Find Our Location",
+      "subtitle": "Visit our state-of-the-art manufacturing facility equipped with professional JUKI equipment and certified to international standards.",
+      "address": "Miro Baraga 56, Probištip 2210",
+      "locationName": "PANOVI DOOEL",
+      "cta": "Get Directions"
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "subtitle": "Ready to discuss your project? Fill out the form below and our team will get back to you within 24 hours.",
+      "fields": {
+        "firstName": {
+          "label": "First Name",
+          "placeholder": "Your first name",
+          "required": "First name is required"
+        },
+        "lastName": {
+          "label": "Last Name",
+          "placeholder": "Your last name",
+          "required": "Last name is required"
+        },
+        "email": {
+          "label": "Email Address",
+          "placeholder": "you@email.com",
+          "required": "Email is required",
+          "invalid": "Enter a valid email"
+        },
+        "company": {
+          "label": "Company Name",
+          "placeholder": "Your company name",
+          "required": "Company is required"
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "+ 389 xx xxx xxx",
+          "required": "Phone is required"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "What can we help you with?",
+          "required": "Subject is required"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell us about your project requirements, quantities, timeline, and any specific needs.",
+          "required": "Message is required",
+          "minLength": "Please add a bit more detail"
+        }
+      },
+      "submit": {
+        "cta": "Send Message",
+        "sending": "Sending..."
+      },
+      "footerNote": "* Required fields. We’ll respond within 24 hours during business days.",
+      "toasts": {
+        "success": "Thanks! Your message has been sent.",
+        "fail": "Failed to send message. Please try again."
+      }
+    }
+  },
+  "footer": {
+    "logoAlt": "Panovi logo",
+    "tagline": "Where innovation meets responsibility. Textile excellence in harmony with nature.",
+    "reachUs": "REACH US",
+    "menu": "MENU",
+    "privacy": "Privacy Policy",
+    "address": {
+      "line1": "str. Miro Baraga nn 2210 Probishtip",
+      "line2": "North Macedonia"
+    },
+    "linkedinAria": "LinkedIn",
+    "copyright": "© {{year}} Panovi DOOEL. All rights reserved.",
+    "designedBy": "designed by"
+  }
+}

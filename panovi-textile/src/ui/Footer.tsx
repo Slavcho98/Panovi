@@ -13,7 +13,11 @@ const Footer: React.FC = () => {
       <div className="mx-auto w-[90%] px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <img src={logoLight} alt={t("footer.logoAlt")} className="h-24 w-auto" />
+            <img
+              src={logoLight}
+              alt={t("footer.logoAlt")}
+              className="h-24 w-auto"
+            />
             <p className="mt-3 max-w-sm text-sm text-white/70">
               {t("footer.tagline")}
             </p>
@@ -32,7 +36,9 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="md:col-span-4">
-            <h4 className="text-sm font-semibold tracking-wider">{t("footer.reachUs")}</h4>
+            <h4 className="text-sm font-semibold tracking-wider">
+              {t("footer.reachUs")}
+            </h4>
             <ul className="mt-4 space-y-3 text-sm text-white/80">
               <li className="flex items-start gap-3">
                 <FiPhone className="mt-0.5 shrink-0" />
@@ -64,21 +70,47 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="text-sm font-semibold tracking-wider">{t("footer.menu")}</h4>
+            <h4 className="text-sm font-semibold tracking-wider">
+              {t("footer.menu")}
+            </h4>
             <ul className="mt-4 space-y-3 text-sm text-white/80">
-              <li><NavLink to="/" className="hover:text-white">{t("nav.home")}</NavLink></li>
-              <li><NavLink to="/about" className="hover:text-white">{t("nav.about")}</NavLink></li>
-              <li><NavLink to="/process" className="hover:text-white">{t("nav.process")}</NavLink></li>
-              <li><NavLink to="/certificates" className="hover:text-white">{t("nav.certificates")}</NavLink></li>
-              <li><NavLink to="/contact" className="hover:text-white">{t("nav.contact")}</NavLink></li>
-              <li><NavLink to="/privacy" className="hover:text-white">{t("footer.privacy")}</NavLink></li>
+              <li>
+                <NavLink to="/" className="hover:text-white">
+                  {t("nav.home")}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/about" className="hover:text-white">
+                  {t("nav.about")}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/process" className="hover:text-white">
+                  {t("nav.process")}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/certificates" className="hover:text-white">
+                  {t("nav.certificates")}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact" className="hover:text-white">
+                  {t("nav.contact")}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/privacy" className="hover:text-white">
+                  {t("footer.privacy")}
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>
 
         <hr className="my-10 border-white/10" />
 
-        <div className="flex flex-col items-center justify-between gap-3 text-base text-white font-light sm:flex-row text-sm">
+        <div className="flex flex-col items-center justify-between gap-3  text-white font-light sm:flex-row text-sm">
           <p>{t("footer.copyright", { year: new Date().getFullYear() })}</p>
           <p>
             {t("footer.designedBy")}{" "}

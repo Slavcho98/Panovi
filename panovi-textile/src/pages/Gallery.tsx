@@ -7,6 +7,7 @@ import {
 } from "react-icons/lu";
 import { PiScissors } from "react-icons/pi";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 
 import ManufacturingExcellence from "./GalleryPage/ManufacturingExcellence";
 import ProcessList from "./GalleryPage/ProcessList";
@@ -19,6 +20,9 @@ import imgFinish from "./../assets/manufactur-4.jpg";
 
 function Gallery() {
   const { t } = useTranslation();
+  const SITE_URL = (
+    import.meta.env.VITE_SITE_URL ?? "https://www.panovi.mk"
+  ).replace(/\/+$/, "");
 
   const metricTexts = t("process.metrics", { returnObjects: true }) as Array<{
     value: string;
@@ -53,7 +57,6 @@ function Gallery() {
     },
   ];
 
-  // Process steps (images & icons are local, text from i18n)
   const stepTexts = t("process.steps", { returnObjects: true }) as Array<{
     title: string;
     metric: string;
@@ -116,6 +119,39 @@ function Gallery() {
 
   return (
     <div>
+      {/* ✅ SEO */}
+      <Helmet>
+        <title>Manufacturing Gallery & Process | PANOVI</title>
+        <meta
+          name="description"
+          content="See PANOVI’s manufacturing process: cutting, craftsmanship, overlocking, and finishing—backed by industrial-grade equipment and strict quality controls."
+        />
+        <link rel="canonical" href={`${SITE_URL}/gallery`} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Manufacturing Gallery & Process | PANOVI"
+        />
+        <meta
+          property="og:description"
+          content="Explore PANOVI’s end-to-end manufacturing workflow and quality standards."
+        />
+        <meta property="og:url" content={`${SITE_URL}/gallery`} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Manufacturing Gallery & Process | PANOVI"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore PANOVI’s end-to-end manufacturing workflow and quality standards."
+        />
+        <meta name="twitter:image" content={`${SITE_URL}/og-gallery.jpg`} />
+      </Helmet>
+
       <ManufacturingExcellence items={METRICS} />
       <ProcessList items={PROCESS_ITEMS} />
       <QualityTeaser

@@ -12,6 +12,7 @@ import {
 import { PiMedalLight } from "react-icons/pi";
 import { FaCircle } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet"; // ✅ added
 
 import ManufacturingExcellence from "./GalleryPage/ManufacturingExcellence";
 import type { MetricItemProps } from "./GalleryPage/MetricItem";
@@ -29,6 +30,10 @@ import StatusLabel from "../ui/StatusLabel";
 
 function Certificates() {
   const { t } = useTranslation();
+  const SITE_URL = (
+    import.meta.env.VITE_SITE_URL ?? "https://www.panovi.mk"
+  ).replace(/\/+$/, ""); // ✅ added
+
   const heroLead = t("certificatesPage.hero.headingLead");
   const heroHighlight = t("certificatesPage.hero.headingHighlight");
   const heroDesc = t("certificatesPage.hero.description");
@@ -177,8 +182,56 @@ function Certificates() {
     returnObjects: true,
   }) as string[];
 
+  // ✅ SEO: JSON-LD for a list of certificates
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Certificates",
+    url: `${SITE_URL}/certificates`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "OEKO-TEX® STeP" },
+      { "@type": "ListItem", position: 2, name: "ISO 14001:2015" },
+      { "@type": "ListItem", position: 3, name: "ISO 9001:2015" },
+      { "@type": "ListItem", position: 4, name: "ISO 45001:2018" },
+      { "@type": "ListItem", position: 5, name: "ISO 50001:2018" },
+    ],
+  };
+
   return (
     <div>
+      <Helmet>
+        <title>Certificates | PANOVI</title>
+        <meta
+          name="description"
+          content="Explore PANOVI’s certifications including OEKO-TEX®, ISO 9001, ISO 14001, ISO 45001, and ISO 50001—proof of our commitment to quality, safety, and sustainability."
+        />
+        <link rel="canonical" href={`${SITE_URL}/certificates`} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Certificates | PANOVI" />
+        <meta
+          property="og:description"
+          content="PANOVI’s international certifications: OEKO-TEX®, ISO 9001, ISO 14001, ISO 45001, ISO 50001."
+        />
+        <meta property="og:url" content={`${SITE_URL}/certificates`} />
+        <meta property="og:image" content={`${SITE_URL}/og-certificates.png`} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Certificates | PANOVI" />
+        <meta
+          name="twitter:description"
+          content="PANOVI’s international certifications: OEKO-TEX®, ISO 9001, ISO 14001, ISO 45001, ISO 50001."
+        />
+        <meta
+          name="twitter:image"
+          content={`${SITE_URL}/og-certificates.jpg`}
+        />
+      </Helmet>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <ManufacturingExcellence
         items={METRICS}
         headingLead={heroLead}

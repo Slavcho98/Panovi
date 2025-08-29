@@ -25,29 +25,36 @@ function PageNav() {
   const setLang = (lng: "en" | "de") => i18n.changeLanguage(lng);
   const lang = (i18n.resolvedLanguage || "en").slice(0, 2);
 
-  const LangButtons = ({ className = "" }: { className?: string }) => (
-    <div className={`flex items-center gap-3 text-sm text-neutral-700 ${className}`}>
-      <button
-        onClick={() => setLang("en")}
-        aria-pressed={lang === "en"}
-        className={`px-1.5 rounded focus:outline-none focus:ring-2 focus:ring-neutral-300 ${
-          lang === "en" ? "font-semibold text-black underline underline-offset-4" : "hover:text-black"
-        }`}
-      >
-        EN
-      </button>
-      <span className="text-neutral-300">|</span>
-      <button
-        onClick={() => setLang("de")}
-        aria-pressed={lang === "de"}
-        className={`px-1.5 rounded focus:outline-none focus:ring-2 focus:ring-neutral-300 ${
-          lang === "de" ? "font-semibold text-black underline underline-offset-4" : "hover:text-black"
-        }`}
-      >
-        DE
-      </button>
-    </div>
-  );
+ const LangButtons = ({ className = "" }: { className?: string }) => (
+  <div
+    className={`flex items-center gap-1 text-sm text-neutral-700 ${className}`} // reduced gap from 3 → 1
+  >
+    <button
+      onClick={() => setLang("en")}
+      aria-pressed={lang === "en"}
+      className={`px-1.5 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-300 ${
+        lang === "en"
+          ? "font-semibold text-black underline underline-offset-4"
+          : "hover:text-black"
+      }`}
+    >
+      EN
+    </button>
+    <span className="text-neutral-300">|</span>
+    <button
+      onClick={() => setLang("de")}
+      aria-pressed={lang === "de"}
+      className={`px-1.5 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-300 ${
+        lang === "de"
+          ? "font-semibold text-black underline underline-offset-4"
+          : "hover:text-black"
+      }`}
+    >
+      DE
+    </button>
+  </div>
+);
+
 
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-neutral-200">

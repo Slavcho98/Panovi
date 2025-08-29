@@ -12,12 +12,15 @@ const Footer: React.FC = () => {
     <footer className="bg-[#0F172A] text-white">
       <div className="mx-auto w-[90%] px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+          {/* Logo + Tagline */}
           <div className="md:col-span-5">
-            <img
-              src={logoLight}
-              alt={t("footer.logoAlt")}
-              className="h-24 w-auto"
-            />
+            <NavLink to="/" aria-label={t("footer.logoAlt")}>
+              <img
+                src={logoLight}
+                alt={t("footer.logoAlt")}
+                className="h-24 w-auto cursor-pointer"
+              />
+            </NavLink>
             <p className="mt-3 max-w-sm text-sm text-white/70">
               {t("footer.tagline")}
             </p>
@@ -35,6 +38,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
+          {/* Contact Info */}
           <div className="md:col-span-4">
             <h4 className="text-sm font-semibold tracking-wider">
               {t("footer.reachUs")}
@@ -69,6 +73,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
+          {/* Menu Links */}
           <div className="md:col-span-3">
             <h4 className="text-sm font-semibold tracking-wider">
               {t("footer.menu")}
@@ -110,7 +115,8 @@ const Footer: React.FC = () => {
 
         <hr className="my-10 border-white/10" />
 
-        <div className="flex flex-col items-center justify-between gap-3  text-white font-light sm:flex-row text-sm">
+        {/* Bottom Bar */}
+        <div className="flex flex-col items-center justify-between gap-3 text-white font-light sm:flex-row text-sm">
           <p>{t("footer.copyright", { year: new Date().getFullYear() })}</p>
           <p>
             {t("footer.designedBy")}{" "}

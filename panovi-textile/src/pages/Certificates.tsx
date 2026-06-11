@@ -25,6 +25,7 @@ import cert2 from "../assets/certificate_2.jpg";
 import cert3 from "../assets/certificate_3.jpg";
 import cert4 from "../assets/certificate_4.jpg";
 import cert5 from "../assets/certificate_5.jpg";
+import environmentalPdf from "../assets/PANOVI_Environmental_Protection_Elaborat_EN.pdf";
 import QualityTeaser from "./GalleryPage/QualityTeaser";
 import StatusLabel from "../ui/StatusLabel";
 
@@ -247,6 +248,21 @@ function Certificates() {
         }}
       />
       <CertificateImageList items={CERT_ITEMS} />
+
+      <section className="mx-auto w-[90%] py-12 text-center">
+        <a
+          href={environmentalPdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
+        >
+          <LuShieldCheck className="text-lg" />
+          {t("certificatesPage.pdfButton", {
+            defaultValue: "Environmental Protection Elaborat (PDF)",
+          })}
+        </a>
+      </section>
+
       <CertFeaturesList items={CERT_FEATURES} />
 
       <StatusLabel

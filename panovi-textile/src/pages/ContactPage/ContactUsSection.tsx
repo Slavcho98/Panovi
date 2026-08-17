@@ -14,7 +14,15 @@ export default function ContactUs() {
 
           <ContactForm
             onSubmitForm={async (data) => {
-              console.log("Contact form:", data);
+              const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+              });
+              if (!res.ok) {
+                const err = await res.json().catch(() => ({}));
+                throw new Error(err.error || "Something went wrong");
+              }
             }}
           />
         </div>

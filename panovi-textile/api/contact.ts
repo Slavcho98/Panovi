@@ -4,6 +4,14 @@ import nodemailer from 'nodemailer';
 
 const required = (v?: string) => typeof v === 'string' && v.trim().length > 0;
 
+function esc(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') return res.status(405).send('Method Not Allowed');
 
@@ -32,13 +40,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const html = `
       <h2>New Contact Message</h2>
-      <p><b>Name:</b> ${firstName} ${lastName}</p>
-      <p><b>Email:</b> ${email}</p>
-      <p><b>Company:</b> ${company ?? '-'}</p>
-      <p><b>Phone:</b> ${phone ?? '-'}</p>
-      <p><b>Subject:</b> ${subject ?? '-'}</p>
+      <p><b>Name:</b> ${esc(firstName)} ${esc(lastName)}</p>
+      <p><b>Email:</b> ${esc(email)}</p>
+      <p><b>Company:</b> ${esc(company ?? '-')}</p>
+      <p><b>Phone:</b> ${esc(phone ?? '-')}</p>
+      <p><b>Subject:</b> ${esc(subject ?? '-')}</p>
       <hr />
-      <pre style="white-space:pre-wrap">${message}</pre>
+      <pre style="white-space:pre-wrap">${esc(message)}</pre>
     `;
 
     await transporter.sendMail({

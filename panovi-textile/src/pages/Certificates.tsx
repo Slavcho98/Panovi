@@ -26,6 +26,7 @@ import cert3 from "../assets/certificate_3.jpg";
 import cert4 from "../assets/certificate_4.jpg";
 import cert5 from "../assets/certificate_5.jpg";
 import environmentalPdf from "../assets/PANOVI_Environmental_Protection_Elaborat_EN.pdf";
+import carbonWaterPdf from "../assets/Carbon and Water Footprint Impact Report 2025.pdf";
 import QualityTeaser from "./GalleryPage/QualityTeaser";
 import StatusLabel from "../ui/StatusLabel";
 
@@ -33,7 +34,7 @@ function Certificates() {
   const { t } = useTranslation();
   const SITE_URL = (
     import.meta.env.VITE_SITE_URL ?? "https://www.panovi.mk"
-  ).replace(/\/+$/, ""); // ✅ added
+  ).replace(/\/+$/, "");
 
   const heroLead = t("certificatesPage.hero.headingLead");
   const heroHighlight = t("certificatesPage.hero.headingHighlight");
@@ -183,7 +184,6 @@ function Certificates() {
     returnObjects: true,
   }) as string[];
 
-  // ✅ SEO: JSON-LD for a list of certificates
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -250,17 +250,30 @@ function Certificates() {
       <CertificateImageList items={CERT_ITEMS} />
 
       <section className="mx-auto w-[90%] py-12 text-center">
-        <a
-          href={environmentalPdf}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
-        >
-          <LuShieldCheck className="text-lg" />
-          {t("certificatesPage.pdfButton", {
-            defaultValue: "Environmental Protection Elaborat (PDF)",
-          })}
-        </a>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a
+            href={environmentalPdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
+          >
+            <LuShieldCheck className="text-lg" />
+            {t("certificatesPage.pdfButton", {
+              defaultValue: "Environmental Protection Elaborat (PDF)",
+            })}
+          </a>
+          <a
+            href={carbonWaterPdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
+          >
+            <LuLeaf className="text-lg" />
+            {t("certificatesPage.carbonWaterPdfButton", {
+              defaultValue: "Carbon & Water Footprint Impact Report 2025 (PDF)",
+            })}
+          </a>
+        </div>
       </section>
 
       <CertFeaturesList items={CERT_FEATURES} />

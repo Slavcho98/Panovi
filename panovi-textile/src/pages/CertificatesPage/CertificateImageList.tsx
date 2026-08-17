@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { LuX } from "react-icons/lu";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
-import CertificateImageItem, { type CertificateImageItemProps } from "./CertificateImageItem";
+import CertificateImageItem, {
+  type CertificateImageItemProps,
+} from "./CertificateImageItem";
 import { useTranslation } from "react-i18next";
 
 type CertificateImageListProps = {
@@ -24,8 +26,15 @@ function Lightbox({
   alt?: string;
   caption?: string;
 }) {
+  const [zoomed, setZoomed] = useState(false);
+
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setZoomed(false);
+        onClose();
+      }
+    };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -34,25 +43,41 @@ function Lightbox({
     };
   }, [open, onClose]);
 
+  // Reset zoom when lightbox closes or image changes
+  useEffect(() => {
+    if (!open) setZoomed(false);
+  }, [open, src]);
+
   if (!open) return null;
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
-      onClick={onClose}
+      onClick={() => {
+        if (zoomed) {
+          setZoomed(false);
+        } else {
+          onClose();
+        }
+      }}
       role="dialog"
       aria-modal="true"
     >
       <div
-        className="relative w-full max-w-xl sm:max-w-2xl"
+        className={`relative transition-all duration-300 ${zoomed ? "w-full max-w-4xl overflow-auto max-h-[90vh]" : "w-full max-w-xl sm:max-w-2xl"}`}
         onClick={(e) => e.stopPropagation()}
       >
         <img
           src={src}
           alt={alt}
-          className="mx-auto max-h-[70vh] w-auto max-w-full object-contain rounded-xl shadow-2xl bg-white"
+          onClick={() => setZoomed((z) => !z)}
+          className={`mx-auto rounded-xl shadow-2xl bg-white transition-all duration-300 select-none ${
+            zoomed
+              ? "w-full max-w-none object-contain cursor-zoom-out"
+              : "max-h-[70vh] w-auto max-w-full object-contain cursor-zoom-in"
+          }`}
         />
-        {caption && (
+        {caption && !zoomed && (
           <div className="mt-3 text-center text-white/90 text-sm">
             {caption}
           </div>
@@ -76,9 +101,13 @@ export default function CertificateImageList({
   subtitle,
 }: CertificateImageListProps) {
   const { t } = useTranslation();
-  const resolvedTitle = title ?? t("certificatesPage.processCertificates.title");
-  const resolvedSubtitle = subtitle ?? t("certificatesPage.processCertificates.subtitle");
-  const [selected, setSelected] = useState<CertificateImageItemProps | null>(null);
+  const resolvedTitle =
+    title ?? t("certificatesPage.processCertificates.title");
+  const resolvedSubtitle =
+    subtitle ?? t("certificatesPage.processCertificates.subtitle");
+  const [selected, setSelected] = useState<CertificateImageItemProps | null>(
+    null,
+  );
   const railRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: 1 | -1) => {
@@ -158,7 +187,9 @@ export default function CertificateImageList({
         onClose={() => setSelected(null)}
         src={selected?.src ?? ""}
         alt={selected?.alt}
-        caption={selected ? `${selected.title} — ${selected.description}` : undefined}
+        caption={
+          selected ? `${selected.title} — ${selected.description}` : undefined
+        }
       />
     </section>
   );

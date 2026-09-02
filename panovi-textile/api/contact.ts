@@ -30,12 +30,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // SendGrid via SMTP
     const transporter = nodemailer.createTransport({
-      host: 'smtp.sendgrid.net',
-      port: 587,
+      host: process.env.SMTP_HOST!,
+      port: Number(process.env.SMTP_PORT ?? 587),
       secure: false,
-      auth: { user: 'apikey', pass: process.env.SENDGRID_API_KEY! },
+      auth: {
+        user: process.env.SMTP_USER!,
+        pass: process.env.SMTP_PASS!,
+      },
     });
 
     const html = `
@@ -49,9 +51,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       <pre style="white-space:pre-wrap">${esc(message)}</pre>
     `;
 
+    const fromAddress = `${process.env.SMTP_FROM_NAME ?? 'Panovi Textile'} <${process.env.SMTP_USER!}>`;
+
     await transporter.sendMail({
-      from: process.env.CONTACT_FROM!, // e.g. "Website <no-reply@yourdomain.com>"
-      to: process.env.CONTACT_TO!,     // your inbox
+      from: fromAddress,
+      to: process.env.SMTP_TO_EMAIL!,
       replyTo: email,
       subject: `[Website Contact] ${subject || 'No subject'}`,
       html,

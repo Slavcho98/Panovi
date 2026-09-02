@@ -1,62 +1,35 @@
-import { useForm } from "react-hook-form";
-import { LuSend } from "react-icons/lu";
-import { toast } from "react-hot-toast";
+import { useState } from "react";
+import { LuCheck, LuCopy, LuMail, LuSend, LuShieldCheck, LuTimerReset } from "react-icons/lu";
 import { useTranslation } from "react-i18next";
-
-type FormValues = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  company?: string;
-  phone?: string;
-  subject?: string;
-  message: string;
-};
 
 type ContactFormProps = {
   title?: string;
   subtitle?: string;
-  onSubmitForm?: (data: FormValues) => Promise<void> | void;
   className?: string;
 };
 
 export default function ContactForm({
   title,
   subtitle,
-  onSubmitForm,
   className = "",
 }: ContactFormProps) {
   const { t } = useTranslation();
+  const [copied, setCopied] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<FormValues>();
+  const contactEmail = t("contact.cards.2.line1").trim();
+  const mailtoHref = `mailto:${contactEmail}`;
 
-  const onSubmit = async (values: FormValues) => {
+  const copyEmail = async () => {
+    if (!navigator.clipboard || !contactEmail) return;
+
     try {
-      await onSubmitForm?.(values);
-      toast.success(t("contact.form.toasts.success"));
-      reset({
-        firstName: "",
-        lastName: "",
-        email: "",
-        company: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-    } catch (err: any) {
-      toast.error(err?.message || t("contact.form.toasts.fail"));
+      await navigator.clipboard.writeText(contactEmail);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
     }
   };
-
-  const inputCls =
-    "w-full rounded-lg border border-neutral-200 bg-white px-3.5 py-2.5 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40";
-  const labelCls = "text-xs font-medium text-neutral-600";
-  const errorCls = "mt-1 text-[11px] text-red-600";
 
   return (
     <div className={`space-y-3 ${className}`}>
@@ -69,115 +42,74 @@ export default function ContactForm({
         </p>
       </div>
 
-      <div className="rounded-3xl border border-neutral-200 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] p-5 sm:p-6">
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className={labelCls}>{t("contact.form.fields.firstName.label")}*</label>
-              <input
-                className={inputCls}
-                placeholder={t("contact.form.fields.firstName.placeholder")}
-                {...register("firstName", {
-                  required: t("contact.form.fields.firstName.required"),
-                })}
-              />
-              {errors.firstName && <p className={errorCls}>{errors.firstName.message}</p>}
-            </div>
+      <div className="relative overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-[0_14px_36px_rgba(0,0,0,0.08)] p-5 sm:p-7">
+        <div className="pointer-events-none absolute -right-14 -top-14 h-44 w-44 rounded-full bg-sky-200/45 blur-3xl" />
+        <div className="pointer-events-none absolute -left-10 -bottom-10 h-36 w-36 rounded-full bg-cyan-100/40 blur-3xl" />
 
-            <div>
-              <label className={labelCls}>{t("contact.form.fields.lastName.label")}*</label>
-              <input
-                className={inputCls}
-                placeholder={t("contact.form.fields.lastName.placeholder")}
-                {...register("lastName", {
-                  required: t("contact.form.fields.lastName.required"),
-                })}
-              />
-              {errors.lastName && <p className={errorCls}>{errors.lastName.message}</p>}
-            </div>
-
-            <div className="sm:col-span-2">
-              <label className={labelCls}>{t("contact.form.fields.email.label")}*</label>
-              <input
-                className={inputCls}
-                type="email"
-                placeholder={t("contact.form.fields.email.placeholder")}
-                {...register("email", {
-                  required: t("contact.form.fields.email.required"),
-                  pattern: {
-                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    message: t("contact.form.fields.email.invalid"),
-                  },
-                })}
-              />
-              {errors.email && <p className={errorCls}>{errors.email.message}</p>}
-            </div>
-
-            <div>
-              <label className={labelCls}>{t("contact.form.fields.company.label")}*</label>
-              <input
-                className={inputCls}
-                placeholder={t("contact.form.fields.company.placeholder")}
-                {...register("company", {
-                  required: t("contact.form.fields.company.required"),
-                })}
-              />
-              {errors.company && <p className={errorCls}>{errors.company.message}</p>}
-            </div>
-
-            <div>
-              <label className={labelCls}>{t("contact.form.fields.phone.label")}*</label>
-              <input
-                className={inputCls}
-                placeholder={t("contact.form.fields.phone.placeholder")}
-                {...register("phone", {
-                  required: t("contact.form.fields.phone.required"),
-                })}
-              />
-              {errors.phone && <p className={errorCls}>{errors.phone.message}</p>}
-            </div>
-
-            <div className="sm:col-span-2">
-              <label className={labelCls}>{t("contact.form.fields.subject.label")}*</label>
-              <input
-                className={inputCls}
-                placeholder={t("contact.form.fields.subject.placeholder")}
-                {...register("subject", {
-                  required: t("contact.form.fields.subject.required"),
-                })}
-              />
-              {errors.subject && <p className={errorCls}>{errors.subject.message}</p>}
-            </div>
-
-            <div className="sm:col-span-2">
-              <label className={labelCls}>{t("contact.form.fields.message.label")}*</label>
-              <textarea
-                className={`${inputCls} min-h-[120px]`}
-                placeholder={t("contact.form.fields.message.placeholder")}
-                {...register("message", {
-                  required: t("contact.form.fields.message.required"),
-                  minLength: { value: 10, message: t("contact.form.fields.message.minLength") },
-                })}
-              />
-              {errors.message && <p className={errorCls}>{errors.message.message}</p>}
-            </div>
+        <div className="relative space-y-5">
+          <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700">
+            <LuMail className="h-3.5 w-3.5" />
+            {t("contact.form.emailCta.badge", { defaultValue: "Direct email" })}
           </div>
 
-          <div className="mt-5 text-center">
+          <div className="flex flex-col gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-[11px] uppercase tracking-wide text-neutral-500">
+                {t("contact.form.fields.email.label")}
+              </p>
+              <p className="mt-1 text-base font-medium text-neutral-900 break-all">{contactEmail}</p>
+            </div>
+
             <button
-              type="submit"
-              disabled={isSubmitting}
-              className="inline-flex items-center cursor-pointer gap-2 rounded-full bg-gradient-to-r from-[#2E7BFF] to-[#1AA3FF] px-5 py-2.5 text-sm font-medium text-white shadow hover:opacity-95 disabled:opacity-60"
+              type="button"
+              onClick={copyEmail}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
             >
-              <LuSend className="h-4 w-4" />
-              {isSubmitting ? t("contact.form.submit.sending") : t("contact.form.submit.cta")}
+              {copied ? <LuCheck className="h-4 w-4" /> : <LuCopy className="h-4 w-4" />}
+              {copied
+                ? t("contact.form.emailCta.copied", { defaultValue: "Copied" })
+                : t("contact.form.emailCta.copy", { defaultValue: "Copy email" })}
             </button>
           </div>
 
-          <p className="mt-3 text-[11px] text-neutral-500 text-center">
-            {t("contact.form.footerNote")}
-          </p>
-        </form>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-2xl border border-neutral-200 bg-white p-3.5">
+              <p className="inline-flex items-center gap-2 text-sm font-medium text-neutral-800">
+                <LuTimerReset className="h-4 w-4 text-sky-600" />
+                {t("contact.form.emailCta.responseTitle", { defaultValue: "Fast response" })}
+              </p>
+              <p className="mt-1 text-xs text-neutral-500">
+                {t("contact.form.emailCta.responseBody", {
+                  defaultValue: "We usually reply within 24 hours on business days.",
+                })}
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-neutral-200 bg-white p-3.5">
+              <p className="inline-flex items-center gap-2 text-sm font-medium text-neutral-800">
+                <LuShieldCheck className="h-4 w-4 text-emerald-600" />
+                {t("contact.form.emailCta.privacyTitle", {
+                  defaultValue: "Private communication",
+                })}
+              </p>
+              <p className="mt-1 text-xs text-neutral-500">
+                {t("contact.form.emailCta.privacyBody", {
+                  defaultValue: "Your request goes straight to our inbox without intermediate form processing.",
+                })}
+              </p>
+            </div>
+          </div>
+
+          <a
+            href={mailtoHref}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#2E7BFF] to-[#1AA3FF] px-5 py-3 text-sm font-medium text-white shadow transition hover:opacity-95 sm:w-auto"
+          >
+              <LuSend className="h-4 w-4" />
+              {t("contact.form.emailCta.open", {
+                defaultValue: "Send email",
+              })}
+          </a>
+        </div>
       </div>
     </div>
   );
